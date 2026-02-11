@@ -4,11 +4,12 @@ import MateriCard from '@/components/MateriCard';
 
 export default function Home() {
   return (
-    <div className="space-y-24 py-12">
+    <div className="space-y-12">
       {/* Hero Section */}
       <header className="space-y-8 max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="space-y-2">
-          <p className="text-indigo-600 font-bold uppercase tracking-[0.2em] text-xs">Department of Professional Development</p>
+          <p className="text-indigo-600 font-bold uppercase tracking-[0.2em] text-sm">Prodi Manajemen Informatika    ||   STIKOM PGRI Banyuwangi</p>
+
           <h1 className="text-6xl font-serif font-black text-slate-950 leading-[1.1]">
             Prompt Writing <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-slate-400">Mastery Course</span>
