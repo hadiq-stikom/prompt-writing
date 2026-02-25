@@ -39,38 +39,42 @@ export default async function MateriPage({ params }) {
     const MaterialContent = materiComponents[materiId] || DefaultMateri;
 
     return (
-        <div className="py-12 space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <Link href="/" className="text-sm font-bold text-slate-400 hover:text-indigo-600 transition-colors flex items-center group">
+        <div className="py-12 px-4 md:px-0 space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <Link href="/" className="text-sm font-bold text-slate-500 hover:text-primary transition-colors flex items-center group">
                 <span className="mr-2 transform group-hover:-translate-x-1 transition-transform">←</span> Kembali ke Beranda
             </Link>
 
             <header className="space-y-6">
-                <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center text-2xl text-white shadow-xl shadow-indigo-200">
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-2xl text-white shadow-xl shadow-primary/20">
                     {materi.id}
                 </div>
                 <div className="space-y-2">
-                    <p className="text-indigo-600 font-bold uppercase tracking-widest text-xs">Materi Perkuliahan</p>
-                    <h1 className="text-5xl font-serif font-black text-slate-900 leading-tight">
+                    <p className="text-primary font-bold uppercase tracking-widest text-xs">Materi Perkuliahan</p>
+                    <h1 className="text-5xl font-black text-white leading-tight">
                         {materi.title}
                     </h1>
                 </div>
             </header>
 
-            <MaterialContent materi={materi} />
+            <div className="glass p-1 rounded-3xl overflow-hidden">
+                <div className="bg-slate-900/40 backdrop-blur-md p-6 md:p-10 rounded-[1.4rem]">
+                    <MaterialContent materi={materi} />
+                </div>
+            </div>
 
-            <div className="grid md:grid-cols-2 gap-8 pt-12 border-t border-slate-100">
+            <div className="grid md:grid-cols-2 gap-8 pt-12 border-t border-white/5">
                 {materi.id > 1 && (
-                    <Link href={`/materi/${materi.id - 1}`} className="group p-6 rounded-2xl border border-slate-100 hover:border-indigo-100 hover:bg-slate-50/50 transition-all">
-                        <p className="text-xs text-slate-400 font-bold uppercase mb-2">Materi Sebelumnya</p>
-                        <h4 className="text-slate-700 font-bold group-hover:text-indigo-600 transition-colors">
+                    <Link href={`/materi/${materi.id - 1}`} className="group p-6 rounded-2xl border border-white/5 hover:border-primary/30 hover:bg-primary/5 transition-all">
+                        <p className="text-xs text-slate-500 font-bold uppercase mb-2">Materi Sebelumnya</p>
+                        <h4 className="text-white font-bold group-hover:text-primary transition-colors">
                             {materiList.find(m => m.id === materi.id - 1).title}
                         </h4>
                     </Link>
                 )}
                 {materi.id < 14 && (
-                    <Link href={`/materi/${materi.id + 1}`} className="group p-6 rounded-2xl border border-slate-100 hover:border-indigo-100 hover:bg-slate-50/50 transition-all text-right ml-auto w-full">
-                        <p className="text-xs text-slate-400 font-bold uppercase mb-2">Materi Selanjutnya</p>
-                        <h4 className="text-slate-700 font-bold group-hover:text-indigo-600 transition-colors">
+                    <Link href={`/materi/${materi.id + 1}`} className="group p-6 rounded-2xl border border-white/5 hover:border-primary/30 hover:bg-primary/5 transition-all text-right ml-auto w-full">
+                        <p className="text-xs text-slate-500 font-bold uppercase mb-2">Materi Selanjutnya</p>
+                        <h4 className="text-white font-bold group-hover:text-primary transition-colors">
                             {materiList.find(m => m.id === materi.id + 1).title}
                         </h4>
                     </Link>

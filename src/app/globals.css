@@ -2,22 +2,22 @@
 
 @layer base {
   :root {
-    --background: #fdfdfb;
-    --foreground: #1a1a1a;
-    --primary: #1e293b;
-    /* Slate-800 */
-    --secondary: #475569;
-    /* Slate-600 */
-    --accent: #4f46e5;
-    /* Indigo-600 */
-    --muted: #f1f5f9;
-    --border: #e2e8f0;
+    --background: #010816;
+    --foreground: #f8fafc;
+    --primary: #00a8e8;
+    --background-light: #010816;
+    --background-dark: #010816;
+    --cyber-blue: #003459;
+    --deep-dark: #00171f;
+    --slate-100: #f1f5f9;
+    --slate-400: #94a3b8;
+    --slate-900: #0f172a;
   }
 
   body {
     background: var(--background);
     color: var(--foreground);
-    @apply antialiased;
+    @apply antialiased min-h-screen;
   }
 
   h1,
@@ -26,34 +26,57 @@
   h4,
   h5,
   h6 {
-    @apply font-serif text-slate-900;
+    @apply font-sans text-slate-100;
   }
 
-  /* Custom Scrollbar for Sidebar */
-  nav.overflow-y-auto::-webkit-scrollbar {
-    width: 4px;
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
   }
 
-  nav.overflow-y-auto::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  nav.overflow-y-auto::-webkit-scrollbar-thumb {
-    background: #334155;
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 168, 232, 0.2);
     border-radius: 10px;
   }
 
-  nav.overflow-y-auto::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 168, 232, 0.4);
   }
 }
 
 @theme inline {
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", system-ui, sans-serif;
+
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
+  --color-cyber-blue: var(--cyber-blue);
+  --color-deep-dark: var(--deep-dark);
+
+  --radius-DEFAULT: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+@utility glass {
+  background: rgba(0, 168, 232, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 168, 232, 0.15);
+}
+
+@utility glass-darker {
+  background: rgba(1, 8, 22, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 168, 232, 0.25);
+}
+
+@utility hero-gradient {
+  background: radial-gradient(circle at top left, rgba(0, 168, 232, 0.1), transparent),
+    radial-gradient(circle at bottom right, rgba(0, 168, 232, 0.05), transparent);
+  background-color: #010816;
 }
