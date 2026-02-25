@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ScrollReveal from '@/components/materi/ScrollReveal';
 import { materiList } from '@/data/materi';
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
   const nextUpMateri = 3;
 
   return (
-    <div className="min-h-screen pb-24 md:pb-12">
+    <div className="min-h-screen">
       {/* Header / Top Nav (Desktop & Mobile) */}
       <nav className="sticky top-0 z-50 glass-darker px-4 py-4 mb-8 md:mb-12 rounded-b-xl md:rounded-xl md:mt-4">
         <div className="flex items-center justify-between">
@@ -27,13 +28,44 @@ export default function Home() {
             <div className="h-10 w-10 rounded-full border-2 border-primary overflow-hidden">
               <img
                 className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEcL4GZ-VnLZqEN6xEpoUmbwDa60YTndj1d0ElJLL7OgIHOKj7AElyXMzlCHkrp8NYxLVZHoz-thSOdyqig_2QNoVPWVkeTFysoBvRhH7uDd6Fgy9Uf9ygRzjwZp8E86RDaXRdfqaANvJ257D-1N42CkeDaZe59jTfvfhg2yJgzK5oYgGWxolC27ZCWyZcdiyET1OZupojSP2i9LHkxsdQPnZYzn8XhlDtmNdOAmBdUw23cvB384B2EgDEwiSNV9Kfgp6rfalARxw"
-                alt="Student profile"
+                src="/lecturer.jpg"
+                alt="Profile"
               />
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Lecturer Profile Section */}
+      <section className="px-4 md:px-0 mb-8 mt-4 md:mt-8">
+        <div className="glass p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-6 border border-white/5 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-8 opacity-5 text-8xl font-black italic pointer-events-none group-hover:scale-110 transition-transform duration-700">DOSEN</div>
+          <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-full border-4 border-slate-800 p-1 relative z-10">
+            <div className="w-full h-full rounded-full overflow-hidden border border-primary/30">
+              <img
+                src="/lecturer.jpg"
+                alt="Dosen Pengampu"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-2 -right-2 bg-primary text-white p-1.5 rounded-full border-2 border-[#010816] shadow-lg">
+              <span className="material-symbols-outlined text-[14px]">verified</span>
+            </div>
+          </div>
+          <div className="text-center md:text-left relative z-10 flex-1">
+            <div className="inline-block px-3 py-1 bg-primary/10 border border-primary/20 rounded-full mb-3">
+              <span className="text-primary text-[10px] font-black uppercase tracking-widest flex items-center justify-center md:justify-start gap-1">
+                <span className="material-symbols-outlined text-[14px]">school</span>
+                Dosen Pengampu
+              </span>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">Hadiq, M.Kom</h3>
+            <p className="text-sm text-slate-400 leading-relaxed max-w-3xl">
+              Selamat datang di mata kuliah <strong>Prompt Writing & AI Engineering</strong>. Bersama saya, kita akan mengeksplorasi teknik-teknik fundamental hingga lanjutan dalam berdialog dengan model bahasa besar (LLM). Tujuannya bukan sekadar coding, melainkan bagaimana menjadi seorang "AI Architect" yang efisien.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="mb-12 px-4 md:px-0">
@@ -96,64 +128,42 @@ export default function Home() {
 
         {/* Roadmap Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-12">
-          {materiList.map((materi) => {
+          {materiList.map((materi, index) => {
             const isCompleted = completedMateri.includes(materi.id);
             const isNextUp = nextUpMateri === materi.id;
 
             return (
-              <Link
-                key={materi.id}
-                href={`/materi/${materi.id}`}
-                className={`glass p-6 rounded-xl flex flex-col justify-between group hover:border-primary transition-all relative overflow-hidden ${isNextUp ? 'border-2 border-primary shadow-lg shadow-primary/10' : ''}`}
-              >
-                {isNextUp && (
-                  <div className="absolute top-0 right-0 p-2">
-                    <span className="material-symbols-outlined text-primary text-xl animate-pulse">star</span>
-                  </div>
-                )}
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <div className={`p-3 rounded-lg text-white ${isCompleted ? 'bg-primary' : isNextUp ? 'bg-primary shadow-[0_0_15px_rgba(0,168,232,0.4)]' : 'bg-slate-800'}`}>
-                      <span className="material-symbols-outlined">
-                        {isCompleted ? 'check' : isNextUp ? 'play_arrow' : 'auto_stories'}
+              <ScrollReveal key={materi.id} delay={index * 0.05}>
+                <Link
+                  href={`/materi/${materi.id}`}
+                  className={`glass p-6 rounded-xl flex flex-col justify-between group hover:border-primary transition-all relative overflow-hidden h-full ${isNextUp ? 'border-2 border-primary shadow-lg shadow-primary/10' : ''}`}
+                >
+                  {isNextUp && (
+                    <div className="absolute top-0 right-0 p-2">
+                      <span className="material-symbols-outlined text-primary text-xl animate-pulse">star</span>
+                    </div>
+                  )}
+                  <div>
+                    <div className="flex justify-between items-start mb-4">
+                      <div className={`p-3 rounded-lg text-white ${isCompleted ? 'bg-primary' : isNextUp ? 'bg-primary shadow-[0_0_15px_rgba(0,168,232,0.4)]' : 'bg-slate-800'}`}>
+                        <span className="material-symbols-outlined">
+                          {isCompleted ? 'check' : isNextUp ? 'play_arrow' : 'auto_stories'}
+                        </span>
+                      </div>
+                      <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase border ${isCompleted ? 'bg-primary/20 text-primary border-primary/30' : isNextUp ? 'bg-primary text-white border-primary' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                        {isCompleted ? 'Completed' : isNextUp ? 'Next Up' : 'Available'}
                       </span>
                     </div>
-                    <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase border ${isCompleted ? 'bg-primary/20 text-primary border-primary/30' : isNextUp ? 'bg-primary text-white border-primary' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
-                      {isCompleted ? 'Completed' : isNextUp ? 'Next Up' : 'Available'}
-                    </span>
+                    <p className="text-[10px] font-bold text-primary mb-1">WEEK {materi.id}</p>
+                    <h4 className="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-white">{materi.title}</h4>
                   </div>
-                  <p className="text-[10px] font-bold text-primary mb-1">WEEK {materi.id}</p>
-                  <h4 className="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-white">{materi.title}</h4>
-                </div>
-                <p className="text-sm text-slate-400 mt-4 line-clamp-2">{materi.desc}</p>
-              </Link>
+                  <p className="text-sm text-slate-400 mt-4 line-clamp-2">{materi.desc}</p>
+                </Link>
+              </ScrollReveal>
             );
           })}
         </div>
       </section>
-
-      {/* Bottom Navigation (Mobile Only) */}
-      <div className="fixed md:hidden bottom-0 left-0 right-0 bg-[#010816]/95 backdrop-blur-lg border-t border-white/5 z-50 px-4">
-        <div className="max-w-md mx-auto flex items-center justify-around py-2">
-          <Link href="/" className="flex flex-col items-center gap-1 text-primary relative">
-            <div className="absolute -top-1 w-12 h-12 bg-primary/20 rounded-full blur-md -z-10"></div>
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Home</span>
-          </Link>
-          <Link href="#roadmap" className="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
-            <span className="material-symbols-outlined">book_4</span>
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Syllabus</span>
-          </Link>
-          <Link href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
-            <span className="material-symbols-outlined">folder_open</span>
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Projects</span>
-          </Link>
-          <Link href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
-            <span className="material-symbols-outlined">person</span>
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Profile</span>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

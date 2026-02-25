@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import MobileNav from "@/components/MobileNav";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -21,11 +22,12 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} font-sans antialiased bg-background-dark text-slate-100 min-h-screen hero-gradient`}>
         <div className="flex min-h-screen">
           <Sidebar />
-          <main className="flex-1 md:ml-64 relative">
+          <main className="flex-1 md:ml-64 relative pb-20 md:pb-0">
             <div className="max-w-7xl mx-auto">
               {children}
             </div>
           </main>
+          <MobileNav />
         </div>
       </body>
     </html>
