@@ -17,8 +17,10 @@ export default function Home() {
               <span className="material-symbols-outlined text-primary">psychology</span>
             </div>
             <h1 className="text-xl font-bold tracking-tight text-white">
-              LOBBY <span className="text-primary">PERKULIAHAN</span>
+              PROMPT <span className="text-primary">WRITING</span>
             </h1>
+
+
           </div>
           <div className="flex items-center gap-4">
             <button className="p-2 rounded-full hover:bg-primary/10 transition-colors relative">
@@ -157,7 +159,7 @@ export default function Home() {
                     <p className="text-[10px] font-bold text-primary mb-1">WEEK {materi.id}</p>
                     <h4 className="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-white">{materi.title}</h4>
                   </div>
-                  <p className="text-sm text-slate-400 mt-4 line-clamp-2">{materi.desc}</p>
+                  <p className="text-sm text-slate-400 mt-4 leading-relaxed">{materi.desc}</p>
                 </Link>
               </ScrollReveal>
             );

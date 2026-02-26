@@ -31,8 +31,8 @@ export const materiList = [
     },
     {
         id: 7,
-        title: 'Prompt untuk Fotografi',
-        desc: 'Teknik prompt untuk menghasilkan komposisi foto yang realistis.'
+        title: 'Prompt untuk Database & Backend',
+        desc: 'Merancang arsitektur relasional, NoSQL, dan API terintegrasi via prompt.'
     },
     {
         id: 8,
