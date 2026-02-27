@@ -40,7 +40,7 @@ export default function Home() {
 
       {/* Lecturer Profile Section */}
       <section className="px-4 md:px-0 mb-8 mt-4 md:mt-8">
-        <div className="glass p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-6 border border-white/5 relative overflow-hidden group">
+        <div className="glass p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-6 border border-white/5 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
           <div className="absolute top-0 right-0 p-8 opacity-5 text-8xl font-black italic pointer-events-none group-hover:scale-110 transition-transform duration-700">DOSEN</div>
           <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-full border-4 border-slate-800 p-1 relative z-10">
             <div className="w-full h-full rounded-full overflow-hidden border border-primary/30">
@@ -62,7 +62,7 @@ export default function Home() {
               </span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Hadiq, M.Kom</h3>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-3xl">
+            <p className="text-sm text-slate-200 leading-relaxed max-w-3xl">
               Selamat datang di mata kuliah <strong>Prompt Writing & AI Engineering</strong>. Bersama saya, kita akan mengeksplorasi teknik-teknik fundamental hingga lanjutan dalam berdialog dengan model bahasa besar (LLM). Tujuannya bukan sekadar coding, melainkan bagaimana menjadi seorang "AI Architect" yang efisien.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function Home() {
       <section className="mb-12 px-4 md:px-0">
         <div className="relative overflow-hidden rounded-xl bg-primary/5 p-px border border-primary/30 shadow-[0_0_30px_rgba(0,168,232,0.05)]">
           <div className="absolute inset-0 bg-linear-to-br from-primary/30 via-transparent to-primary/20"></div>
-          <div className="relative bg-slate-900/60 backdrop-blur-md p-8 md:p-10 rounded-[0.9rem] flex flex-col md:flex-row gap-8 items-center border border-white/5">
+          <div className="relative bg-slate-900/60 backdrop-blur-md p-8 md:p-10 rounded-[0.9rem] flex flex-col md:flex-row gap-8 items-center border border-white/5 hover:scale-[1.02] transition-transform duration-300">
             <div className="flex-1 space-y-4 text-center md:text-left">
               <span className="inline-block px-3 py-1 border border-primary text-primary text-[10px] font-bold uppercase tracking-widest rounded-full bg-primary/10">
                 CURRICULUM OVERVIEW
@@ -81,7 +81,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-5xl font-black leading-tight text-white">
                 Master the Art of <br className="hidden md:block" /> Communicating with AI
               </h2>
-              <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
+              <p className="text-slate-200 text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
                 Dari arsitektur dasar LLM hingga pola prompt engineering tingkat lanjut. Jembatani celah antara niat manusia dan eksekusi mesin dalam perjalanan intensif 14 minggu ini.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <h3 className="text-2xl font-bold text-white">Curriculum Roadmap</h3>
-            <p className="text-slate-400">Track your progress through the modules</p>
+            <p className="text-slate-200">Track your progress through the modules</p>
           </div>
           <div className="flex items-center gap-3 text-sm font-medium">
             <span className="text-primary font-bold">14% Complete</span>
@@ -138,7 +138,7 @@ export default function Home() {
               <ScrollReveal key={materi.id} delay={index * 0.05}>
                 <Link
                   href={`/materi/${materi.id}`}
-                  className={`glass p-6 rounded-xl flex flex-col justify-between group hover:border-primary transition-all relative overflow-hidden h-full ${isNextUp ? 'border-2 border-primary shadow-lg shadow-primary/10' : ''}`}
+                  className={`glass p-6 rounded-xl flex flex-col justify-between group hover:border-primary transition-all duration-300 hover:scale-105 relative overflow-hidden h-full ${isNextUp ? 'border-2 border-primary shadow-lg shadow-primary/10' : ''}`}
                 >
                   {isNextUp && (
                     <div className="absolute top-0 right-0 p-2">
@@ -152,14 +152,14 @@ export default function Home() {
                           {isCompleted ? 'check' : isNextUp ? 'play_arrow' : 'auto_stories'}
                         </span>
                       </div>
-                      <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase border ${isCompleted ? 'bg-primary/20 text-primary border-primary/30' : isNextUp ? 'bg-primary text-white border-primary' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                      <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase border ${isCompleted ? 'bg-primary/20 text-primary border-primary/30' : isNextUp ? 'bg-primary text-white border-primary' : 'bg-slate-800 text-slate-200 border-slate-700'}`}>
                         {isCompleted ? 'Completed' : isNextUp ? 'Next Up' : 'Available'}
                       </span>
                     </div>
                     <p className="text-[10px] font-bold text-primary mb-1">WEEK {materi.id}</p>
                     <h4 className="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-white">{materi.title}</h4>
                   </div>
-                  <p className="text-sm text-slate-400 mt-4 leading-relaxed">{materi.desc}</p>
+                  <p className="text-sm text-slate-200 mt-4 leading-relaxed">{materi.desc}</p>
                 </Link>
               </ScrollReveal>
             );

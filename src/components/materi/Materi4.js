@@ -11,7 +11,7 @@ export default function Materi4({ materi }) {
                     </div>
                     <div className="max-w-4xl space-y-6">
                         <h2 className="text-5xl font-bold text-white leading-tight tracking-tighter italic decoration-primary/20 underline underline-offset-16">Menulis dengan Presisi: Dokumen Teks</h2>
-                        <p className="text-slate-400 leading-relaxed text-xl text-justify font-medium">
+                        <p className="text-slate-200 leading-relaxed text-xl text-justify font-medium">
                             Dokumen teks formal bukan sekadar susunan kata, melainkan representasi dari niat, etika, dan profesionalisme. Dalam modul ini, kita akan mempelajari bagaimana AI dapat menjadi mitra penulisan (writing partner) yang handal untuk menghasilkan berbagai jenis dokumen formal dengan konteks yang tajam.
                         </p>
                     </div>
@@ -37,7 +37,7 @@ export default function Materi4({ materi }) {
                                 <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 text-sm border border-amber-500/20">1</span>
                                 Konteks & Pengetahuan Dasar
                             </h4>
-                            <p className="text-slate-400 dark:text-slate-400 text-sm leading-relaxed">
+                            <p className="text-slate-200 dark:text-slate-200 text-sm leading-relaxed">
                                 Untuk membuat surat yang tepat, Anda harus memberikan AI pengetahuan tentang:
                             </p>
                             <ul className="space-y-3">
@@ -47,11 +47,11 @@ export default function Materi4({ materi }) {
                                     { t: 'Norma Budaya', d: 'Gaya bahasa (Sangat formal, Semi-formal, atau Bisnis Kasual).' },
                                     { t: 'Referensi Dokumen', d: 'Nomor surat sebelumnya atau lampiran yang terkait.' }
                                 ].map((item, i) => (
-                                    <li key={i} className="flex gap-4 p-4 bg-slate-800/40 border border-white/5 rounded-2xl">
+                                    <li key={i} className="flex gap-4 items-start p-4 bg-slate-800/40 border border-white/5 rounded-2xl hover:scale-[1.02] transition-transform duration-300">
                                         <div className="font-black text-amber-500 text-xs mt-1">✓</div>
                                         <div>
                                             <p className="font-bold text-sm dark:text-white">{item.t}</p>
-                                            <p className="text-xs text-slate-500/80">{item.d}</p>
+                                            <p className="text-xs text-slate-300/80">{item.d}</p>
                                         </div>
                                     </li>
                                 ))}
@@ -59,32 +59,32 @@ export default function Materi4({ materi }) {
                         </div>
 
                         {/* 1.2 Kerangka Prompt */}
-                        <div className="p-8 bg-slate-900/80 backdrop-blur-sm border border-white/10 rounded-[2.5rem] text-white space-y-8 relative overflow-hidden shadow-2xl">
+                        <div className="p-8 bg-slate-900/80 backdrop-blur-sm border border-white/10 rounded-[2.5rem] text-white space-y-8 relative overflow-hidden shadow-2xl hover:scale-[1.02] transition-transform duration-300">
                             <div className="absolute top-0 right-0 p-8 opacity-5 text-8xl italic pointer-events-none">Draft</div>
                             <h4 className="text-primary/80 font-bold text-xs uppercase tracking-widest">Kerangka Prompt Efektif</h4>
                             <div className="space-y-4 font-mono text-xs">
-                                <p className="text-slate-500">{"// Rumus Prompt Surat"}</p>
+                                <p className="text-slate-300">{"// Rumus Prompt Surat"}</p>
                                 <p><span className="text-amber-400">[Persona]</span>: Ahli administrasi perkantoran senior.</p>
                                 <p><span className="text-amber-400">[Context]</span>: Perusahaan A ingin memohon izin penggunaan gedung ke Perusahaan B.</p>
                                 <p><span className="text-amber-400">[Task]</span>: Draft surat resmi Bahasa Indonesia.</p>
                                 <p><span className="text-amber-400">[Tone]</span>: Sangat hormat dan profesional.</p>
                             </div>
                             <div className="pt-6 border-t border-white/10">
-                                <p className="text-xs text-slate-400 italic">"Pastikan mencantumkan detail waktu, lokasi, dan alasan yang sangat logis."</p>
+                                <p className="text-xs text-slate-200 italic">"Pastikan mencantumkan detail waktu, lokasi, dan alasan yang sangat logis."</p>
                             </div>
                         </div>
                     </div>
 
                     {/* 1.3 Examples */}
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="p-8 glass border border-white/5 rounded-3xl space-y-4 shadow-sm">
-                            <h5 className="font-bold dark:text-white uppercase text-xs tracking-widest text-slate-500">Contoh Prompt Dasar</h5>
-                            <div className="p-4 bg-slate-950 rounded-xl font-sans text-sm italic text-slate-400 border border-white/5">
+                        <div className="p-8 glass border border-white/5 rounded-3xl space-y-4 shadow-sm hover:scale-[1.02] transition-transform duration-300">
+                            <h5 className="font-bold dark:text-white uppercase text-xs tracking-widest text-slate-300">Contoh Prompt Dasar</h5>
+                            <div className="p-4 bg-slate-950 rounded-xl font-sans text-sm italic text-slate-200 border border-white/5">
                                 "Tulis surat izin tidak masuk kerja karena sakit untuk atasan saya."
                             </div>
                             <p className="text-xs text-red-400 font-medium">Hasil: Terlalu umum, kurang detail medis/prosedur.</p>
                         </div>
-                        <div className="p-8 glass border border-emerald-500/20 rounded-3xl space-y-4 shadow-xl border-l-4 border-l-emerald-500">
+                        <div className="p-8 glass border border-emerald-500/20 rounded-3xl space-y-4 shadow-xl border-l-4 border-l-emerald-500 hover:scale-[1.02] transition-transform duration-300">
                             <h5 className="font-bold dark:text-white uppercase text-xs tracking-widest text-emerald-500">Contoh Prompt Kompleks (P-C-T-F)</h5>
                             <div className="p-4 bg-emerald-500/10 rounded-xl font-sans text-sm text-slate-300">
                                 "Bertindaklah sebagai Sekretaris Eksekutif. Saya perlu mengirim surat resmi ke Dekan Fakultas Teknik UI. Konteksnya adalah permohonan kerjasama magang mahasiswa untuk 5 orang di divisi AI kami. Gunakan Bahasa Indonesia baku (EYD). Format harus mengikuti standar surat resmi dengan blok kiri. Jangan gunakan bahasa yang terlalu kaku tapi tetap tunjukkan rasa hormat yang tinggi."
@@ -113,15 +113,15 @@ export default function Materi4({ materi }) {
                             { title: 'Job Description', desc: 'Kata kunci (Keywords) yang dicari oleh sistem ATS.', icon: '📑' },
                             { title: 'Company Culture', desc: 'Pemahaman tentang visi/misi perusahaan target.', icon: '🏢' }
                         ].map((card, i) => (
-                            <div key={i} className="p-8 glass border border-white/5 rounded-3xl space-y-4 hover:shadow-xl transition-all group">
+                            <div key={i} className="p-8 glass border border-white/5 rounded-3xl space-y-4 hover:shadow-xl transition-all duration-300 group hover:scale-105">
                                 <div className="text-4xl group-hover:scale-110 transition-transform duration-300">{card.icon}</div>
                                 <h4 className="font-bold dark:text-white italic text-lg">{card.title}</h4>
-                                <p className="text-sm text-slate-400 leading-relaxed">{card.desc}</p>
+                                <p className="text-sm text-slate-200 leading-relaxed">{card.desc}</p>
                             </div>
                         ))}
                     </div>
 
-                    <div className="bg-slate-900 border border-white/10 rounded-[3rem] p-12 text-white overflow-hidden relative shadow-2xl">
+                    <div className="bg-slate-900 border border-white/10 rounded-[3rem] p-12 text-white overflow-hidden relative shadow-2xl hover:scale-[1.01] transition-transform duration-300">
                         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none text-9xl font-black italic">ATS</div>
                         <div className="max-w-3xl space-y-8 relative z-10">
                             <h3 className="text-2xl font-bold">Rahasia Prompt Lamaran Kerja</h3>
@@ -136,7 +136,7 @@ export default function Materi4({ materi }) {
                                             <th className="py-4">Prompt Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="text-slate-400">
+                                    <tbody className="text-slate-200">
                                         <tr className="border-b border-white/5">
                                             <td className="py-4 font-bold">Highlighting</td>
                                             <td className="py-4 italic">"Fokuskan pada pengalaman saya menggunakan Python selama 3 tahun."</td>
@@ -157,8 +157,8 @@ export default function Materi4({ materi }) {
 
                     {/* Example Lamaran */}
                     <div className="space-y-6">
-                        <h4 className="text-sm font-black uppercase tracking-[0.3em] text-center text-slate-500">Case Study: Cover Letter Mastery</h4>
-                        <div className="p-8 bg-slate-800/40 border border-primary/20 rounded-[2.5rem] relative shadow-xl backdrop-blur-sm">
+                        <h4 className="text-sm font-black uppercase tracking-[0.3em] text-center text-slate-300">Case Study: Cover Letter Mastery</h4>
+                        <div className="p-8 bg-slate-800/40 border border-primary/20 rounded-[2.5rem] relative shadow-xl backdrop-blur-sm hover:scale-[1.02] transition-transform duration-300">
                             <div className="absolute top-4 right-8 text-[10px] font-bold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase border border-primary/20">Top Rated Prompt</div>
                             <p className="font-mono text-sm dark:text-slate-300 leading-relaxed">
                                 &quot;Saya akan melampirkan profil LinkedIn saya dan deskripsi pekerjaan untuk posisi Data Analyst di GoTo. Silakan bertindak sebagai pakar karir. Tuliskan surat lamaran (Cover Letter) yang menonjolkan bagaimana proyek tugas akhir saya tentang 'Analisis Sentimen' relevan dengan kebutuhan fitur review mereka. Berikan batasan maksimal 250 kata dan gunakan struktur: Hook, Body (The Why), dan CTA.&quot;
@@ -178,7 +178,7 @@ export default function Materi4({ materi }) {
                             <span className="w-8 h-px bg-primary"></span> Bagian 03
                         </div>
                         <h2 className="text-3xl font-bold dark:text-white">Deep Dive: Proposal Penelitian</h2>
-                        <p className="text-slate-400 max-w-2xl">Penulisan akademik membutuhkan akurasi logika yang tinggi. Ikuti 7 tahapan berikut untuk membangun proposal yang solid bersama AI.</p>
+                        <p className="text-slate-200 max-w-2xl">Penulisan akademik membutuhkan akurasi logika yang tinggi. Ikuti 7 tahapan berikut untuk membangun proposal yang solid bersama AI.</p>
                     </div>
 
                     <div className="space-y-12 relative before:absolute before:left-8 before:top-8 before:bottom-8 before:w-px before:bg-white/10">
@@ -233,14 +233,14 @@ export default function Materi4({ materi }) {
                                 <div className="grid md:grid-cols-2 gap-8 items-start">
                                     <div className="space-y-4 pt-2">
                                         <h4 className="text-xl font-bold dark:text-white">{item.step}</h4>
-                                        <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                                        <p className="text-sm text-slate-200 leading-relaxed">{item.desc}</p>
                                         <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary/80">
                                             <span className="w-4 h-px bg-primary/50"></span> Input: {item.knowledge}
                                         </div>
                                     </div>
-                                    <div className="p-6 bg-slate-800/40 border border-white/5 rounded-3xl space-y-3 relative group-hover:border-primary/50 transition-all">
-                                        <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Gold Standard Prompt</div>
-                                        <p className="text-xs text-slate-400 leading-relaxed italic">&quot;{item.prompt}&quot;</p>
+                                    <div className="p-6 bg-slate-800/40 border border-white/5 rounded-3xl space-y-3 relative group-hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
+                                        <div className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Gold Standard Prompt</div>
+                                        <p className="text-xs text-slate-200 leading-relaxed italic">&quot;{item.prompt}&quot;</p>
                                         <div className="absolute top-4 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
                                             <span className="text-[10px] bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded-md font-bold uppercase">Pro Choice</span>
                                         </div>
@@ -250,7 +250,7 @@ export default function Materi4({ materi }) {
                         ))}
                     </div>
 
-                    <div className="p-8 bg-primary rounded-[2.5rem] shadow-xl text-white text-center space-y-4 mt-8">
+                    <div className="p-8 bg-primary rounded-[2.5rem] shadow-xl text-white text-center space-y-4 mt-8 hover:scale-[1.02] transition-transform duration-300">
                         <p className="text-sm font-medium italic">&quot;Dalam penelitian, AI bukan pengganti otak peneliti, melainkan akselerator untuk mengorganisir kompleksitas data dan teori.&quot;</p>
                         <p className="text-[10px] font-black uppercase tracking-widest opacity-60">— Academic Excellence Guideline</p>
                     </div>
@@ -276,7 +276,7 @@ export default function Materi4({ materi }) {
                             { l: 'Timeline', v: 'Kapan selesainya?', c: 'text-amber-400' },
                             { l: 'Risk Management', v: 'Apa bahayanya?', c: 'text-red-400' }
                         ].map((item, i) => (
-                            <div key={i} className="p-6 text-center glass border border-white/5 rounded-3xl group hover:border-primary/30 transition-all shadow-sm">
+                            <div key={i} className="p-6 text-center glass border border-white/5 rounded-3xl group hover:border-primary/30 transition-all duration-300 hover:scale-105 shadow-sm">
                                 <p className={`text-[10px] font-black uppercase tracking-tighter mb-2 ${item.c}`}>{item.l}</p>
                                 <p className="text-sm font-bold dark:text-white italic">{item.v}</p>
                             </div>
@@ -286,32 +286,32 @@ export default function Materi4({ materi }) {
                     <div className="grid md:grid-cols-2 gap-12">
                         <div className="space-y-6">
                             <h4 className="text-xl font-bold dark:text-white">Komponen Context yang Krusial</h4>
-                            <p className="text-sm text-slate-400 italic">Agar AI dapat menyusun proposal projek yang meyakinkan klien:</p>
+                            <p className="text-sm text-slate-200 italic">Agar AI dapat menyusun proposal projek yang meyakinkan klien:</p>
                             <div className="space-y-4">
-                                <div className="p-4 glass border-l-4 border-indigo-500 rounded-r-2xl shadow-sm">
+                                <div className="p-4 glass border-l-4 border-indigo-500 rounded-r-2xl shadow-sm hover:scale-[1.02] transition-transform duration-300">
                                     <p className="text-xs font-bold dark:text-white mb-1">Pain Points:</p>
-                                    <p className="text-xs text-slate-400 leading-relaxed italic">"Jelaskan bahwa klien sedang mengalami penurunan efisiensi 30% pada sistem logistik mereka."</p>
+                                    <p className="text-xs text-slate-300 leading-relaxed italic">"Jelaskan bahwa klien sedang mengalami penurunan efisiensi 30% pada sistem logistik mereka."</p>
                                 </div>
-                                <div className="p-4 glass border-l-4 border-emerald-500 rounded-r-2xl shadow-sm">
+                                <div className="p-4 glass border-l-4 border-emerald-500 rounded-r-2xl shadow-sm hover:scale-[1.02] transition-transform duration-300">
                                     <p className="text-xs font-bold dark:text-white mb-1">Unique Selling Point (USP):</p>
-                                    <p className="text-xs text-slate-400 leading-relaxed italic">"Sistem kita menggunakan AI untuk prediksi rute tercepat."</p>
+                                    <p className="text-xs text-slate-300 leading-relaxed italic">"Sistem kita menggunakan AI untuk prediksi rute tercepat."</p>
                                 </div>
-                                <div className="p-4 glass border-l-4 border-amber-500 rounded-r-2xl shadow-sm">
+                                <div className="p-4 glass border-l-4 border-amber-500 rounded-r-2xl shadow-sm hover:scale-[1.02] transition-transform duration-300">
                                     <p className="text-xs font-bold dark:text-white mb-1">Success Metric:</p>
-                                    <p className="text-xs text-slate-400 leading-relaxed italic">"Target penghematan biaya operasional sebesar 15% dalam 6 bulan."</p>
+                                    <p className="text-xs text-slate-300 leading-relaxed italic">"Target penghematan biaya operasional sebesar 15% dalam 6 bulan."</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="space-y-6">
                             <h4 className="text-xl font-bold dark:text-white italic">The Ultimate Project Proposal Prompt</h4>
-                            <div className="p-8 bg-slate-900 border border-white/5 rounded-[2.5rem] shadow-2xl space-y-4">
+                            <div className="p-8 bg-slate-900 border border-white/5 rounded-[2.5rem] shadow-2xl space-y-4 hover:scale-[1.02] transition-transform duration-300">
                                 <div className="flex gap-2 mb-4">
                                     <div className="w-2 h-2 rounded-full bg-slate-700"></div>
                                     <div className="w-2 h-2 rounded-full bg-slate-700"></div>
                                     <div className="w-2 h-2 rounded-full bg-slate-700"></div>
                                 </div>
-                                <p className="text-xs text-slate-400 font-mono leading-relaxed">
+                                <p className="text-xs text-slate-200 font-mono leading-relaxed">
                                     &quot;Anda adalah Konsultan Bisnis Senior. Tuliskan proposal projek untuk klien potensial (Bank BCA) mengenai implementasi Chatbot Layanan Pelanggan. Fokus pada efisiensi waktu respon. Gunakan struktur: Background, Solution, ROI Analysis, dan Roadmap. Jangan gunakan bahasa yang terlalu teknis, fokus pada manfaat bisnis. Gunakan gaya bahasa persuasif dan visioner.&quot;
                                 </p>
                             </div>
@@ -327,11 +327,11 @@ export default function Materi4({ materi }) {
                 <section className="text-center max-w-3xl mx-auto space-y-12 py-20">
                     <div className="space-y-4">
                         <h2 className="text-4xl font-bold dark:text-white italic underline underline-offset-12 decoration-primary/20">Refleksi Belajar</h2>
-                        <p className="text-slate-400 leading-relaxed text-lg">Dari ke-4 tipe dokumen di atas, kesamaan kuncinya adalah: <br /><span className="text-primary font-black uppercase text-2xl tracking-tight">Detail Konteks menentukan Kualitas Output.</span></p>
+                        <p className="text-slate-200 leading-relaxed text-lg">Dari ke-4 tipe dokumen di atas, kesamaan kuncinya adalah: <br /><span className="text-primary font-black uppercase text-2xl tracking-tight">Detail Konteks menentukan Kualitas Output.</span></p>
                     </div>
 
                     <div className="grid gap-6">
-                        <div className="p-10 bg-primary rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                        <div className="p-10 bg-primary rounded-[3rem] text-white shadow-2xl relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
                             <div className="absolute top-0 right-0 p-8 opacity-10 text-9xl italic pointer-events-none group-hover:scale-110 transition-transform">Task</div>
                             <h4 className="font-bold text-2xl mb-4 italic">Tugas Pekan Ini:</h4>
                             <p className="text-indigo-100 text-sm leading-relaxed mb-8 max-w-lg mx-auto italic">

@@ -13,15 +13,15 @@ export default function Materi2({ materi }) {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
                             <h2 className="text-4xl font-bold text-white leading-tight underline decoration-primary/20 underline-offset-8">Tradisional vs Generatif</h2>
-                            <p className="text-slate-400 leading-relaxed text-lg">
+                            <p className="text-slate-200 leading-relaxed text-lg">
                                 Dahulu, AI bersifat <strong>Diskriminatif</strong>—ia mengelompokkan data yang sudah ada (Misal: &quot;Apakah ini gambar kucing?&quot;). Sekarang, kita memasuki era <strong>Generatif</strong>—AI menciptakan data baru (Misal: &quot;Buatkan saya gambar kucing&quot;).
                             </p>
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="p-4 glass rounded-2xl border border-white/5 hover:bg-white/5 transition-all">
+                                <div className="p-4 glass rounded-2xl border border-white/5 hover:bg-white/5 transition-all duration-300 hover:scale-[1.02]">
                                     <h4 className="font-bold text-white mb-2 italic text-sm">Discriminative</h4>
-                                    <p className="text-[10px] text-slate-500 leading-relaxed">Mempelajari batasan antar kategori. Fokus pada klasifikasi.</p>
+                                    <p className="text-[10px] text-slate-300 leading-relaxed">Mempelajari batasan antar kategori. Fokus pada klasifikasi.</p>
                                 </div>
-                                <div className="p-4 bg-primary/10 rounded-2xl border border-primary/20 hover:bg-primary/20 transition-all">
+                                <div className="p-4 bg-primary/10 rounded-2xl border border-primary/20 hover:bg-primary/20 transition-all duration-300 hover:scale-[1.02]">
                                     <h4 className="font-bold text-primary mb-2 italic text-sm">Generative</h4>
                                     <p className="text-[10px] text-primary/70 leading-relaxed">Mempelajari distribusi data. Fokus pada penciptaan.</p>
                                 </div>
@@ -58,25 +58,25 @@ export default function Materi2({ materi }) {
                             <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/10 bg-slate-900 text-primary shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 font-black text-xs">
                                 01
                             </div>
-                            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass border border-white/5 shadow-xl group-hover:bg-white/5 transition-all">
+                            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass border border-white/5 shadow-xl group-hover:bg-white/5 transition-all duration-300 group-hover:scale-[1.02]">
                                 <h4 className="font-bold text-white mb-2">Rule-Based (Expert Systems)</h4>
-                                <p className="text-sm text-slate-400 leading-relaxed">Logika &quot;If-Then&quot; yang kaku. Manusia menulis aturannya secara manual.</p>
+                                <p className="text-sm text-slate-200 leading-relaxed">Logika &quot;If-Then&quot; yang kaku. Manusia menulis aturannya secara manual.</p>
                             </div>
                         </div>
                         <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group transition-all">
                             <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/10 bg-slate-900 text-primary shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 font-black text-xs">
                                 02
                             </div>
-                            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass border border-white/5 shadow-xl group-hover:bg-white/5 transition-all">
+                            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass border border-white/5 shadow-xl group-hover:bg-white/5 transition-all duration-300 group-hover:scale-[1.02]">
                                 <h4 className="font-bold text-white mb-2">Statistical Learning</h4>
-                                <p className="text-sm text-slate-400 leading-relaxed">AI mulai belajar dari probabilitas data tanpa diprogram secara eksplisit untuk setiap skenario.</p>
+                                <p className="text-sm text-slate-200 leading-relaxed">AI mulai belajar dari probabilitas data tanpa diprogram secara eksplisit untuk setiap skenario.</p>
                             </div>
                         </div>
                         <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group transition-all">
                             <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-primary/20 bg-primary text-white shadow-xl shadow-primary/20 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 font-black text-xs">
                                 03
                             </div>
-                            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl bg-primary text-white shadow-2xl relative overflow-hidden group/card">
+                            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl bg-primary text-white shadow-2xl relative overflow-hidden group/card transition-transform duration-300 group-hover:scale-[1.02]">
                                 <div className="absolute inset-0 bg-linear-to-tr from-black/20 to-transparent"></div>
                                 <h4 className="font-bold mb-2 italic tracking-tight relative z-10">Pattern-Based (Deep Learning)</h4>
                                 <p className="text-sm text-white/90 leading-relaxed relative z-10 font-medium">AI mampu mengenali pola abstrak yang sangat kompleks dalam data masif, menyerupai cara kerja saraf manusia.</p>
@@ -127,7 +127,7 @@ export default function Materi2({ materi }) {
                         <span className="w-8 h-px bg-primary"></span> Section 04
                     </div>
                     <h2 className="text-3xl font-bold text-white">Tokenisasi: Bahasa dalam &apos;Kotak&apos;</h2>
-                    <p className="text-slate-400 max-w-2xl text-lg">
+                    <p className="text-slate-200 max-w-2xl text-lg">
                         AI tidak melihat kata &quot;Kucing&quot; sebagai satu kesatuan utuh. Ia memecahnya menjadi potongan kecil yang disebut <strong>Tokens</strong>.
                     </p>
                     <div className="p-12 glass border border-white/5 rounded-[3rem] shadow-2xl relative group overflow-hidden">
@@ -136,12 +136,12 @@ export default function Materi2({ materi }) {
                             <span className="text-2xl text-slate-300 font-bold italic mr-8 whitespace-nowrap">&quot;Jakarta adalah ibukota&quot;</span>
                             <div className="px-8 py-4 glass border-2 border-primary/20 rounded-2xl font-mono text-primary shadow-lg transition-transform hover:-translate-y-2 hover:bg-primary/10">Jak</div>
                             <div className="px-8 py-4 glass border-2 border-primary/20 rounded-2xl font-mono text-primary shadow-lg transition-transform hover:-translate-y-2 hover:bg-primary/10">arta</div>
-                            <div className="px-8 py-4 glass border-2 border-white/10 rounded-2xl font-mono text-slate-400 shadow-lg transition-transform hover:-translate-y-2 hover:bg-white/5">adalah</div>
+                            <div className="px-8 py-4 glass border-2 border-white/10 rounded-2xl font-mono text-slate-200 shadow-lg transition-transform hover:-translate-y-2 hover:bg-white/5">adalah</div>
                             <div className="px-8 py-4 glass border-2 border-emerald-500/20 rounded-2xl font-mono text-emerald-400 shadow-lg transition-transform hover:-translate-y-2 hover:bg-emerald-500/10"> ibu</div>
                             <div className="px-8 py-4 glass border-2 border-emerald-500/20 rounded-2xl font-mono text-emerald-400 shadow-lg transition-transform hover:-translate-y-2 hover:bg-emerald-500/10">kota</div>
                         </div>
                         <div className="mt-12 text-center relative z-10">
-                            <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest italic animate-pulse">Satu kata bisa terdiri dari satu atau lebih kotak (token).</p>
+                            <p className="text-[10px] text-slate-300 font-black uppercase tracking-widest italic animate-pulse">Satu kata bisa terdiri dari satu atau lebih kotak (token).</p>
                         </div>
                     </div>
                 </section>
@@ -158,15 +158,15 @@ export default function Materi2({ materi }) {
                     <h2 className="text-3xl font-bold text-white leading-tight">Probabilitas & Prediksi Kata Berikutnya</h2>
                     <div className="grid md:grid-cols-2 gap-12">
                         <div className="space-y-6">
-                            <p className="text-slate-400 leading-relaxed text-lg">
+                            <p className="text-slate-200 leading-relaxed text-lg">
                                 Secara matematis, LLM hanyalah mesin prediksi. Ia menghitung probabilitas token apa yang paling mungkin muncul setelah urutan teks yang Anda berikan.
                             </p>
                             <ul className="space-y-4">
-                                <li className="flex gap-4 items-start p-6 glass border border-white/5 rounded-2xl shadow-xl">
+                                <li className="flex gap-4 items-start p-6 glass border border-white/5 rounded-2xl shadow-xl transition-transform duration-300 hover:scale-[1.02]">
                                     <span className="text-primary font-black text-xs bg-primary/10 w-6 h-6 rounded flex items-center justify-center">01</span>
                                     <p className="text-sm text-slate-300"><strong>Input:</strong> &quot;Setiap pagi saya minum...&quot;</p>
                                 </li>
-                                <li className="flex gap-4 items-start p-6 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/30 relative overflow-hidden group">
+                                <li className="flex gap-4 items-start p-6 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/30 relative overflow-hidden group transition-transform duration-300 hover:scale-[1.02]">
                                     <div className="absolute inset-0 bg-linear-to-tr from-black/20 to-transparent"></div>
                                     <span className="font-black text-xs bg-white/20 w-6 h-6 rounded flex items-center justify-center relative z-10">02</span>
                                     <p className="text-sm relative z-10"><strong>Prediction:</strong> <span className="font-black underline">&quot;Kopi&quot; (85%)</span>, &quot;Teh&quot; (10%), &quot;Air&quot; (5%)</p>
@@ -194,13 +194,13 @@ export default function Materi2({ materi }) {
                     </div>
                     <div className="text-center max-w-2xl mx-auto space-y-4">
                         <h2 className="text-4xl font-bold text-white tracking-tight italic decoration-primary/20 underline underline-offset-12">Transformer & Self-Attention</h2>
-                        <p className="text-slate-500 mt-4 italic text-sm">&quot;The revolution of &apos;All You Need is Attention&apos;&quot;</p>
+                        <p className="text-slate-300 mt-4 italic text-sm">&quot;The revolution of &apos;All You Need is Attention&apos;&quot;</p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="p-10 rounded-4xl glass border border-white/5 space-y-4 hover:shadow-2xl transition-all group">
+                        <div className="p-10 rounded-4xl glass border border-white/5 space-y-4 hover:shadow-2xl transition-all duration-300 group hover:scale-105">
                             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-primary/5">⚡</div>
                             <h4 className="font-bold text-white text-lg leading-tight">Parallel Processing</h4>
-                            <p className="text-sm text-slate-400 leading-relaxed">Berbeda dengan model lama yang membaca satu per satu, Transformer membaca seluruh teks sekaligus.</p>
+                            <p className="text-sm text-slate-200 leading-relaxed">Berbeda dengan model lama yang membaca satu per satu, Transformer membaca seluruh teks sekaligus.</p>
                         </div>
                         <div className="p-10 rounded-4xl glass border border-primary/30 shadow-2xl space-y-4 scale-105 bg-primary/5 group relative overflow-hidden">
                             <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent"></div>
@@ -208,10 +208,10 @@ export default function Materi2({ materi }) {
                             <h4 className="font-bold text-white text-lg leading-tight relative z-10">Self-Attention</h4>
                             <p className="text-sm text-slate-300 leading-relaxed relative z-10 font-medium">AI menentukan kata mana yang paling relevan dengan kata lainnya dalam satu kalimat untuk memahami konteks utuh.</p>
                         </div>
-                        <div className="p-10 rounded-4xl glass border border-white/5 space-y-4 hover:shadow-2xl transition-all group">
+                        <div className="p-10 rounded-4xl glass border border-white/5 space-y-4 hover:shadow-2xl transition-all duration-300 group hover:scale-105">
                             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-primary/5">📦</div>
                             <h4 className="font-bold text-white text-lg leading-tight">Positional Encoding</h4>
-                            <p className="text-sm text-slate-400 leading-relaxed">Karena dibaca sekaligus, AI memberi &quot;label posisi&quot; agar tahu urutan kata yang sebenarnya.</p>
+                            <p className="text-sm text-slate-200 leading-relaxed">Karena dibaca sekaligus, AI memberi &quot;label posisi&quot; agar tahu urutan kata yang sebenarnya.</p>
                         </div>
                     </div>
                 </section>
@@ -258,10 +258,10 @@ export default function Materi2({ materi }) {
                             { title: 'Systemic Bias', desc: 'Karena belajar dari data internet, AI bisa merefleksikan prasangka manusia dalam datanya.', icon: '⚖️', color: 'orange' },
                             { title: 'Knowledge Cut-off', desc: 'AI tidak tahu peristiwa yang terjadi setelah tanggal terakhir pelatihan datanya selesai.', icon: '✂️', color: 'slate' },
                         ].map((item, i) => (
-                            <div key={i} className={`p-10 glass border border-${item.color}-500/10 rounded-4xl space-y-4 shadow-xl group hover:bg-${item.color}-500/5 transition-all`}>
+                            <div key={i} className={`p-10 glass border border-${item.color}-500/10 rounded-4xl space-y-4 shadow-xl group hover:bg-${item.color}-500/5 transition-all duration-300 hover:scale-105`}>
                                 <div className="text-4xl group-hover:scale-125 transition-transform duration-500">{item.icon}</div>
                                 <h4 className={`font-black text-${item.color}-400 uppercase tracking-widest text-[10px]`}>{item.title}</h4>
-                                <p className="text-sm text-slate-400 leading-relaxed font-medium">{item.desc}</p>
+                                <p className="text-sm text-slate-200 leading-relaxed font-medium">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -279,7 +279,7 @@ export default function Materi2({ materi }) {
                             <span className="w-8 h-px bg-primary"></span> Section 09
                         </div>
                         <h2 className="text-4xl font-bold text-white leading-tight italic decoration-primary/20 underline underline-offset-12">Kenapa Kita Belajar Ini?</h2>
-                        <p className="text-slate-400 leading-relaxed text-lg">
+                        <p className="text-slate-200 leading-relaxed text-lg">
                             Memahami bahwa AI adalah &quot;mesin prediksi token berbasis konteks&quot; mengubah cara kita menulis prompt. Kita tidak lagi &quot;meminta&quot;, tapi memberikan <strong>konteks statis</strong> agar probabilitas jawaban yang kita inginkan menjadi yang tertinggi.
                         </p>
                     </div>
@@ -301,22 +301,22 @@ export default function Materi2({ materi }) {
                         </div>
                         <h2 className="text-5xl font-bold text-white tracking-tighter italic decoration-primary/20 underline underline-offset-12">Synthetic Minds: Summary</h2>
                         <div className="grid sm:grid-cols-2 gap-8 text-left mt-16 relative z-10">
-                            <div className="p-10 rounded-4xl glass border border-white/5 shadow-2xl hover:bg-white/5 transition-all">
+                            <div className="p-10 rounded-4xl glass border border-white/5 shadow-2xl hover:bg-white/5 transition-all duration-300 hover:scale-105">
                                 <h5 className="font-black text-primary mb-6 uppercase tracking-widest text-xs">Poin Utama</h5>
-                                <ul className="text-sm text-slate-400 space-y-4">
+                                <ul className="text-sm text-slate-200 space-y-4">
                                     <li className="flex gap-3"><span className="text-primary font-bold">•</span> AI Generatif memproses token, bukan kata.</li>
                                     <li className="flex gap-3"><span className="text-primary font-bold">•</span> Transformer adalah otak dibalik LLM modern.</li>
                                     <li className="flex gap-3"><span className="text-primary font-bold">•</span> RLHF menyelaraskan AI dengan moral manusia.</li>
                                 </ul>
                             </div>
-                            <div className="p-10 rounded-4xl glass border border-white/5 shadow-2xl hover:bg-white/5 transition-all text-center flex flex-col items-center justify-center space-y-4">
+                            <div className="p-10 rounded-4xl glass border border-white/5 shadow-2xl hover:bg-white/5 transition-all duration-300 hover:scale-105 text-center flex flex-col items-center justify-center space-y-4">
                                 <h5 className="font-black text-primary uppercase tracking-widest text-xs">Diskusi Kelas</h5>
                                 <p className="text-lg text-slate-300 italic leading-relaxed font-bold">
                                     &quot;Dapatkah AI benar-benar memahami makna, atau ia hanya aktor probabilitas yang sangat mahir?&quot;
                                 </p>
                             </div>
                         </div>
-                        <p className="text-slate-500 font-bold tracking-widest uppercase text-xs mt-20 group cursor-default">
+                        <p className="text-slate-300 font-bold tracking-widest uppercase text-xs mt-20 group cursor-default">
                             Next Lesson: <span className="text-primary animate-pulse decoration-primary/50 underline underline-offset-8">Struktur Prompt yang Efektif</span>
                         </p>
                     </div>
