@@ -5,6 +5,8 @@ import Materi2 from '@/components/materi/Materi2';
 import Materi3 from '@/components/materi/Materi3';
 import Materi4 from '@/components/materi/Materi4';
 import Materi5 from '@/components/materi/Materi5';
+import Materi6 from '@/components/materi/Materi6';
+import Materi7 from '@/components/materi/Materi7';
 import DefaultMateri from '@/components/materi/DefaultMateri';
 
 export async function generateStaticParams() {
@@ -19,6 +21,8 @@ const materiComponents = {
     3: Materi3,
     4: Materi4,
     5: Materi5,
+    6: Materi6,
+    7: Materi7,
 };
 
 export default async function MateriPage({ params }) {

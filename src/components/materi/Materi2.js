@@ -1,4 +1,6 @@
+'use client';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 
 export default function Materi2({ materi }) {
@@ -14,7 +16,7 @@ export default function Materi2({ materi }) {
                         <div className="space-y-6">
                             <h2 className="text-4xl font-bold text-white leading-tight underline decoration-primary/20 underline-offset-8">Tradisional vs Generatif</h2>
                             <p className="text-slate-200 leading-relaxed text-lg">
-                                Dahulu, AI bersifat <strong>Diskriminatif</strong>—ia mengelompokkan data yang sudah ada (Misal: &quot;Apakah ini gambar kucing?&quot;). Sekarang, kita memasuki era <strong>Generatif</strong>—AI menciptakan data baru (Misal: &quot;Buatkan saya gambar kucing&quot;).
+                                Dahulu, AI bersifat <strong>Diskriminatif</strong>—ia bertindak seperti "Satpam" yang mengelompokkan data (Misal: &quot;Apakah ini spam?&quot;). Sekarang, kita memasuki era <strong>Generatif</strong>—di mana AI bertindak seperti "Seniman" yang mampu menciptakan konten baru dari nol berdasarkan pola yang dipelajarinya. Pergeseran ini bukan sekadar alat baru, melainkan perubahan paradigma dalam cara kita berkolaborasi dengan mesin.
                             </p>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="p-4 glass rounded-2xl border border-white/5 hover:bg-white/5 transition-all duration-300 hover:scale-[1.02]">
@@ -60,7 +62,7 @@ export default function Materi2({ materi }) {
                             </div>
                             <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass border border-white/5 shadow-xl group-hover:bg-white/5 transition-all duration-300 group-hover:scale-[1.02]">
                                 <h4 className="font-bold text-white mb-2">Rule-Based (Expert Systems)</h4>
-                                <p className="text-sm text-slate-200 leading-relaxed">Logika &quot;If-Then&quot; yang kaku. Manusia menulis aturannya secara manual.</p>
+                                <p className="text-sm text-slate-200 leading-relaxed">Sistem pakar yang mengandalkan ribuan logika &quot;If-Then&quot;. Sangat kaku dan gagal jika menghadapi skenario yang tidak diprogram secara manual oleh manusia.</p>
                             </div>
                         </div>
                         <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group transition-all">
@@ -100,7 +102,7 @@ export default function Materi2({ materi }) {
                             <div className="space-y-6">
                                 <h2 className="text-5xl font-bold leading-tight decoration-white/20 underline underline-offset-12">The Giants of Language</h2>
                                 <p className="text-white/90 text-lg leading-relaxed">
-                                    LLM adalah model deep learning yang dilatih pada skala data yang luar biasa (Triliunan kata). &quot;Large&quot; bukan sekadar ukurannya, melainkan kemampuannya yang muncul (emergent abilities) saat parameter mencapai angka miliaran.
+                                    LLM (Large Language Models) adalah model kecerdasan buatan yang dilatih pada skala data masif (Triliunan token dari internet, buku, dan kode). <strong>&quot;Large&quot;</strong> merujuk pada miliaran parameter yang dimilikinya. Fenomena menarik terjadi di sini: <em>Emergent Abilities</em>—kemampuan cerdas (seperti penalaran logika) yang tiba-tiba muncul hanya setelah model mencapai skala ukuran tertentu.
                                 </p>
                             </div>
                             <div className="grid grid-cols-2 gap-6 items-center">
@@ -133,16 +135,46 @@ export default function Materi2({ materi }) {
                     <div className="p-12 glass border border-white/5 rounded-[3rem] shadow-2xl relative group overflow-hidden">
                         <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         <div className="flex flex-wrap gap-4 items-center justify-center relative z-10">
-                            <span className="text-2xl text-slate-300 font-bold italic mr-8 whitespace-nowrap">&quot;Jakarta adalah ibukota&quot;</span>
-                            <div className="px-8 py-4 glass border-2 border-primary/20 rounded-2xl font-mono text-primary shadow-lg transition-transform hover:-translate-y-2 hover:bg-primary/10">Jak</div>
-                            <div className="px-8 py-4 glass border-2 border-primary/20 rounded-2xl font-mono text-primary shadow-lg transition-transform hover:-translate-y-2 hover:bg-primary/10">arta</div>
-                            <div className="px-8 py-4 glass border-2 border-white/10 rounded-2xl font-mono text-slate-200 shadow-lg transition-transform hover:-translate-y-2 hover:bg-white/5">adalah</div>
-                            <div className="px-8 py-4 glass border-2 border-emerald-500/20 rounded-2xl font-mono text-emerald-400 shadow-lg transition-transform hover:-translate-y-2 hover:bg-emerald-500/10"> ibu</div>
-                            <div className="px-8 py-4 glass border-2 border-emerald-500/20 rounded-2xl font-mono text-emerald-400 shadow-lg transition-transform hover:-translate-y-2 hover:bg-emerald-500/10">kota</div>
+                            <motion.span
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 0.8 }}
+                                className="text-2xl text-slate-300 font-bold italic mr-8 whitespace-nowrap"
+                            >
+                                &quot;Jakarta adalah ibukota&quot;
+                            </motion.span>
+                            {[
+                                { text: 'Jak', color: 'primary' },
+                                { text: 'arta', color: 'primary' },
+                                { text: 'adalah', color: 'slate-200' },
+                                { text: ' ibu', color: 'emerald-400' },
+                                { text: 'kota', color: 'emerald-400' }
+                            ].map((token, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 260,
+                                        damping: 20,
+                                        delay: i * 0.15 + 0.5
+                                    }}
+                                    className={`px-8 py-4 glass border-2 border-${token.color === 'primary' ? 'primary/20' : token.color === 'emerald-400' ? 'emerald-500/20' : 'white/10'} rounded-2xl font-mono text-${token.color} shadow-lg transition-transform hover:-translate-y-2 hover:bg-${token.color === 'primary' ? 'primary/10' : token.color === 'emerald-400' ? 'emerald-500/10' : 'white/5'}`}
+                                >
+                                    {token.text}
+                                </motion.div>
+                            ))}
                         </div>
-                        <div className="mt-12 text-center relative z-10">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1.5 }}
+                            className="mt-12 text-center relative z-10 space-y-2"
+                        >
                             <p className="text-[10px] text-slate-300 font-black uppercase tracking-widest italic animate-pulse">Satu kata bisa terdiri dari satu atau lebih kotak (token).</p>
-                        </div>
+                            <p className="text-[10px] text-primary/50 font-medium italic">Catatan: Bahasa selain Inggris (seperti Indonesia) seringkali memerlukan lebih banyak token untuk satu kata yang sama, yang mempengaruhi efisiensi dan biaya penggunaan AI.</p>
+                        </motion.div>
                     </div>
                 </section>
             </ScrollReveal>
@@ -159,18 +191,47 @@ export default function Materi2({ materi }) {
                     <div className="grid md:grid-cols-2 gap-12">
                         <div className="space-y-6">
                             <p className="text-slate-200 leading-relaxed text-lg">
-                                Secara matematis, LLM hanyalah mesin prediksi. Ia menghitung probabilitas token apa yang paling mungkin muncul setelah urutan teks yang Anda berikan.
+                                Secara matematis, LLM hanyalah mesin prediksi. Ia tidak &quot;tahu&quot; apa yang ia katakan, melainkan menghitung probabilitas token apa yang paling masuk akal muncul setelah urutan teks yang Anda berikan. Proses ini disebut <strong>Sampling</strong>. Dengan mengatur parameter <strong>Temperature</strong>, kita bisa memilih apakah AI harus selalu memilih kata yang paling pasti (Top 1) atau lebih kreatif dengan memilih kata yang kurang umum.
                             </p>
                             <ul className="space-y-4">
-                                <li className="flex gap-4 items-start p-6 glass border border-white/5 rounded-2xl shadow-xl transition-transform duration-300 hover:scale-[1.02]">
+                                <motion.li
+                                    initial={{ x: -20, opacity: 0 }}
+                                    whileInView={{ x: 0, opacity: 1 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="flex gap-4 items-start p-6 glass border border-white/5 rounded-2xl shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+                                >
                                     <span className="text-primary font-black text-xs bg-primary/10 w-6 h-6 rounded flex items-center justify-center">01</span>
                                     <p className="text-sm text-slate-300"><strong>Input:</strong> &quot;Setiap pagi saya minum...&quot;</p>
-                                </li>
-                                <li className="flex gap-4 items-start p-6 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/30 relative overflow-hidden group transition-transform duration-300 hover:scale-[1.02]">
+                                </motion.li>
+                                <motion.li
+                                    initial={{ x: -20, opacity: 0 }}
+                                    whileInView={{ x: 0, opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    className="flex gap-4 items-start p-6 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/30 relative overflow-hidden group transition-transform duration-300 hover:scale-[1.02]"
+                                >
                                     <div className="absolute inset-0 bg-linear-to-tr from-black/20 to-transparent"></div>
                                     <span className="font-black text-xs bg-white/20 w-6 h-6 rounded flex items-center justify-center relative z-10">02</span>
-                                    <p className="text-sm relative z-10"><strong>Prediction:</strong> <span className="font-black underline">&quot;Kopi&quot; (85%)</span>, &quot;Teh&quot; (10%), &quot;Air&quot; (5%)</p>
-                                </li>
+                                    <div className="text-sm relative z-10">
+                                        <strong>Prediction:</strong>
+                                        <div className="inline-flex flex-col h-[1.2em] overflow-hidden ml-2 align-bottom">
+                                            <motion.div
+                                                animate={{ y: [0, -20, -40, -60] }}
+                                                transition={{
+                                                    duration: 2,
+                                                    times: [0, 0.3, 0.6, 1],
+                                                    repeat: Infinity,
+                                                    repeatDelay: 1
+                                                }}
+                                                className="flex flex-col"
+                                            >
+                                                <span className="h-[20px] font-black underline">&quot;Kopi&quot; (85%)</span>
+                                                <span className="h-[20px] opacity-50">&quot;Teh&quot; (10%)</span>
+                                                <span className="h-[20px] opacity-30">&quot;Air&quot; (5%)</span>
+                                                <span className="h-[20px] font-black underline">&quot;Kopi&quot; (85%)</span>
+                                            </motion.div>
+                                        </div>
+                                    </div>
+                                </motion.li>
                             </ul>
                         </div>
                         <div className="bg-slate-900 rounded-4xl p-12 flex items-center justify-center border border-white/5 overflow-hidden relative group shadow-2xl">
@@ -197,21 +258,65 @@ export default function Materi2({ materi }) {
                         <p className="text-slate-300 mt-4 italic text-sm">&quot;The revolution of &apos;All You Need is Attention&apos;&quot;</p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="p-10 rounded-4xl glass border border-white/5 space-y-4 hover:shadow-2xl transition-all duration-300 group hover:scale-105">
-                            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-primary/5">⚡</div>
-                            <h4 className="font-bold text-white text-lg leading-tight">Parallel Processing</h4>
-                            <p className="text-sm text-slate-200 leading-relaxed">Berbeda dengan model lama yang membaca satu per satu, Transformer membaca seluruh teks sekaligus.</p>
+                        {[
+                            { icon: '⚡', title: 'Parallel Processing', desc: 'Berbeda dengan model lawas (RNN) yang membaca kata demi kata secara berurutan, Transformer memproses seluruh paragraf sekaligus. Ini mempercepat pelatihan secara masif.' },
+                            { icon: '👀', title: 'Self-Attention', desc: 'Inilah kunci kecerdasan AI. Mekanisme ini memungkinkan AI memberikan "perhatian" lebih besar pada kata-kata kunci dalam satu kalimat untuk menangkap makna yang benar.', featured: true },
+                            { icon: '📦', title: 'Positional Encoding', desc: 'Karena diproses sekaligus, AI membutuhkan "label koordinat" untuk memahami urutan kata (Misal: membedakan "Kucing memakan tikus" dengan "Tikus memakan kucing").' }
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ y: 20, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ delay: i * 0.2 }}
+                                className={`p-10 rounded-4xl glass border ${item.featured ? 'border-primary/30 bg-primary/5 scale-105 shadow-2xl relative overflow-hidden' : 'border-white/5'} space-y-4 hover:shadow-2xl transition-all duration-300 group hover:scale-105`}
+                            >
+                                {item.featured && <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent"></div>}
+                                <div className={`w-14 h-14 ${item.featured ? 'bg-primary text-white shadow-xl shadow-primary/20' : 'bg-primary/10'} rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-lg relative z-10`}>
+                                    {item.icon}
+                                </div>
+                                <h4 className="font-bold text-white text-lg leading-tight relative z-10">{item.title}</h4>
+                                <p className={`text-sm ${item.featured ? 'text-slate-300 font-medium' : 'text-slate-200'} leading-relaxed relative z-10`}>{item.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                    {/* Visual Attention Demo */}
+                    <div className="mt-8 p-10 glass border border-white/5 rounded-3xl overflow-hidden space-y-6">
+                        <div className="text-center">
+                            <h5 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Simulasi Konteks (Self-Attention)</h5>
+                            <p className="text-xs text-slate-400 italic">"Coba arahkan kursor pada kata yang memiliki makna ganda"</p>
                         </div>
-                        <div className="p-10 rounded-4xl glass border border-primary/30 shadow-2xl space-y-4 scale-105 bg-primary/5 group relative overflow-hidden">
-                            <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent"></div>
-                            <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-2xl text-white shadow-xl shadow-primary/20 relative z-10">👀</div>
-                            <h4 className="font-bold text-white text-lg leading-tight relative z-10">Self-Attention</h4>
-                            <p className="text-sm text-slate-300 leading-relaxed relative z-10 font-medium">AI menentukan kata mana yang paling relevan dengan kata lainnya dalam satu kalimat untuk memahami konteks utuh.</p>
-                        </div>
-                        <div className="p-10 rounded-4xl glass border border-white/5 space-y-4 hover:shadow-2xl transition-all duration-300 group hover:scale-105">
-                            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-primary/5">📦</div>
-                            <h4 className="font-bold text-white text-lg leading-tight">Positional Encoding</h4>
-                            <p className="text-sm text-slate-200 leading-relaxed">Karena dibaca sekaligus, AI memberi &quot;label posisi&quot; agar tahu urutan kata yang sebenarnya.</p>
+                        <div className="flex justify-center gap-8 relative py-8">
+                            {[
+                                { word: 'Saya', attention: [] },
+                                { word: 'pergi', attention: [] },
+                                { word: 'ke', attention: [] },
+                                { word: 'bank', attention: ['nabung', 'uang'], type: 'target' },
+                                { word: 'untuk', attention: [] },
+                                { word: 'menabung', attention: ['bank'], type: 'context' }
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={i}
+                                    whileHover="hover"
+                                    className="relative cursor-pointer group/word"
+                                >
+                                    <span className={`text-xl font-mono ${item.type === 'target' ? 'text-primary font-bold underline decoration-primary/30' : 'text-slate-300 group-hover/word:text-white transition-colors'}`}>{item.word}</span>
+                                    {item.type === 'target' && (
+                                        <motion.div
+                                            variants={{
+                                                hover: { opacity: 1, scale: 1, y: 0 }
+                                            }}
+                                            initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                                            className="absolute -top-16 -left-1/2 w-48 pointer-events-none z-20"
+                                        >
+                                            <div className="bg-primary px-3 py-2 rounded-xl text-[10px] text-white shadow-2xl border border-white/20 leading-tight">
+                                                <strong className="block mb-1">Attention Mechanism:</strong>
+                                                AI melihat kata <strong>"menabung"</strong>, sehingga ia yakin 100% <strong>"bank"</strong> di sini adalah lembaga keuangan, bukan pinggiran sungai.
+                                            </div>
+                                            <div className="w-3 h-3 bg-primary rotate-45 mx-auto -mt-1.5 border-r border-b border-white/20"></div>
+                                        </motion.div>
+                                    )}
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -231,12 +336,16 @@ export default function Materi2({ materi }) {
                             <div className="space-y-6 border-r border-white/10 pr-12">
                                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Phase 01: Pre-training</h4>
                                 <h3 className="text-4xl font-bold italic tracking-tight">The Librarian Phase</h3>
-                                <p className="text-white/80 text-sm leading-relaxed font-medium">AI membaca triliunan dokumen internet untuk belajar &quot;bagaimana bahasa bekerja&quot; dan &quot;pengetahuan umum tentang dunia&quot;. Ia menjadi sangat pintar tapi belum tahu cara mengobrol dengan sopan.</p>
+                                <p className="text-white/80 text-sm leading-relaxed font-medium">
+                                    AI membaca triliunan dokumen dari Wikipedia, buku, artikel berita, hingga kode sumber (GitHub). Di fase ini, AI belajar &quot;bagaimana bahasa bekerja&quot; dan membangun pengetahuan umum tentang dunia. Ia menjadi sangat pintar dalam memprediksi kata, namun belum tahu cara berinteraksi dengan manusia secara sopan atau mengikuti instruksi spesifik.
+                                </p>
                             </div>
                             <div className="space-y-6 pl-4">
                                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Phase 02: RLHF</h4>
                                 <h3 className="text-4xl font-bold italic tracking-tight">The Etiquette Phase</h3>
-                                <p className="text-white/80 text-sm leading-relaxed font-medium"><em>Reinforcement Learning from Human Feedback</em>. Manusia memberikan peringkat pada jawaban AI. Ini mengajarkan AI untuk bersikap membantu, jujur, dan tidak berbahaya.</p>
+                                <p className="text-white/80 text-sm leading-relaxed font-medium">
+                                    <em>Reinforcement Learning from Human Feedback</em>. Setelah &quot;pintar&quot;, AI dilatih ulang oleh manusia yang memberikan peringkat pada jawaban-jawabannya. Fase ini krusial untuk <strong>Alignment</strong>—menyelaraskan AI agar bersikap membantu, jujur, tidak berbahaya, dan mampu menjawab pertanyaan dalam format percakapan.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -254,9 +363,9 @@ export default function Materi2({ materi }) {
                     <h2 className="text-3xl font-bold text-white">Batasan Sang Raksasa</h2>
                     <div className="grid md:grid-cols-3 gap-8 mt-8">
                         {[
-                            { title: 'Hallucination', desc: 'AI terkadang mengarang fakta dengan nada yang sangat meyakinkan karena ia hanya menebak probabilitas.', icon: '🌀', color: 'red' },
-                            { title: 'Systemic Bias', desc: 'Karena belajar dari data internet, AI bisa merefleksikan prasangka manusia dalam datanya.', icon: '⚖️', color: 'orange' },
-                            { title: 'Knowledge Cut-off', desc: 'AI tidak tahu peristiwa yang terjadi setelah tanggal terakhir pelatihan datanya selesai.', icon: '✂️', color: 'slate' },
+                            { title: 'Hallucination', desc: 'AI adalah "Stochastic Parrot"—ia hanya mengulang pola tanpa pemahaman makna yang nyata. Ini membuatnya sering mengarang fakta dengan nada yang sangat meyakinkan.', icon: '🌀', color: 'red' },
+                            { title: 'Systemic Bias', desc: 'Karena belajar dari data internet yang tidak difilter sepenuhnya, AI bisa merefeksikan prasangka atau ketidakadilan sistemik yang ada dalam bahasa manusia.', icon: '⚖️', color: 'orange' },
+                            { title: 'Knowledge Cut-off', desc: 'AI adalah sistem tertutup. Ia tidak tahu apa yang terjadi setelah database pelatihannya berhenti (misal: Januari 2024), kecuali jika dihubungkan ke internet.', icon: '✂️', color: 'slate' },
                         ].map((item, i) => (
                             <div key={i} className={`p-10 glass border border-${item.color}-500/10 rounded-4xl space-y-4 shadow-xl group hover:bg-${item.color}-500/5 transition-all duration-300 hover:scale-105`}>
                                 <div className="text-4xl group-hover:scale-125 transition-transform duration-500">{item.icon}</div>
@@ -278,15 +387,32 @@ export default function Materi2({ materi }) {
                         <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
                             <span className="w-8 h-px bg-primary"></span> Section 09
                         </div>
-                        <h2 className="text-4xl font-bold text-white leading-tight italic decoration-primary/20 underline underline-offset-12">Kenapa Kita Belajar Ini?</h2>
+                        <motion.h2
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className="text-4xl font-bold text-white leading-tight italic decoration-primary/20 underline underline-offset-12"
+                        >
+                            Kenapa Kita Belajar Ini?
+                        </motion.h2>
                         <p className="text-slate-200 leading-relaxed text-lg">
-                            Memahami bahwa AI adalah &quot;mesin prediksi token berbasis konteks&quot; mengubah cara kita menulis prompt. Kita tidak lagi &quot;meminta&quot;, tapi memberikan <strong>konteks statis</strong> agar probabilitas jawaban yang kita inginkan menjadi yang tertinggi.
+                            Memahami bahwa AI adalah &quot;mesin prediksi token berbasis konteks&quot; mengubah cara kita menulis prompt secara fundamental. Kita tidak lagi &quot;tanya-jawab&quot; secara pasif, melainkan melakukan <strong>Context Engineering</strong>. Dengan memberikan konteks yang kaya dan spesifik, kita memaksa probabilitas statistik AI untuk mengerucut hanya pada jawaban yang kita inginkan.
                         </p>
                     </div>
-                    <div className="p-12 bg-primary rounded-[2.5rem] text-white shadow-3xl rotate-2 relative overflow-hidden group/box">
+                    <motion.div
+                        animate={{
+                            y: [0, -10, 0],
+                            rotate: [2, 1, 2]
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        className="p-12 bg-primary rounded-[2.5rem] text-white shadow-3xl rotate-2 relative overflow-hidden group/box"
+                    >
                         <div className="absolute inset-0 bg-linear-to-tr from-black/20 to-transparent"></div>
                         <p className="text-xl font-bold italic relative z-10">&quot;Kualitas output berbanding lurus dengan kualitas konteks yang memicu probabilitas tersebut.&quot;</p>
-                    </div>
+                    </motion.div>
                 </section>
             </ScrollReveal>
 

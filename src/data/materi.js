@@ -21,18 +21,18 @@ export const materiList = [
     },
     {
         id: 5,
-        title: 'Prompt untuk Coding',
-        desc: 'Membantu proses debugging, refactoring, dan pembuatan boilerplate.'
+        title: 'Prompt untuk Frontend',
+        desc: 'Membangun antarmuka fungsional, komponen UI, dan manajemen state client-side menggunakan Next.js & Tailwind.'
     },
     {
         id: 6,
-        title: 'Prompt untuk Desain Grafis',
-        desc: 'Iterasi konsep visual menggunakan alat berbasis text-to-image.'
+        title: 'Prompt untuk Backend & Database',
+        desc: 'Mengonfigurasi database MySQL dengan Prisma ORM dan membangun REST API untuk integrasi data full-stack.'
     },
     {
         id: 7,
-        title: 'Prompt untuk Database & Backend',
-        desc: 'Merancang arsitektur relasional, NoSQL, dan API terintegrasi via prompt.'
+        title: 'Prompt untuk Desain Grafis',
+        desc: 'Iterasi konsep visual, logo, dan aset grafis menggunakan alat berbasis text-to-image.'
     },
     {
         id: 8,
