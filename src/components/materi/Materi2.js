@@ -1,56 +1,66 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
+import PresentationMode from './PresentationMode';
 
 export default function Materi2({ materi }) {
-    return (
-        <div className="space-y-24 pb-20 dark:text-slate-200">
-            {/* Section 1: Pengenalan AI Generatif */}
-            <ScrollReveal>
-                <section className="space-y-8">
-                    <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                        <span className="w-8 h-px bg-primary"></span> Section 01
+    const [isPresenting, setIsPresenting] = useState(false);
+    const [startSlide, setStartSlide] = useState(0);
+
+    const openPresentation = (index) => {
+        setStartSlide(index);
+        setIsPresenting(true);
+        // Request fullscreen immediately in the click handler to satisfy browser security
+        if (typeof document !== 'undefined' && document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen().catch(err => {
+                console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+        }
+    };
+
+    // Define sections as a function to avoid duplicating content
+    const getSections = () => [
+        {
+            id: "01",
+            title: "Tradisional vs Generatif",
+            content: (
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
+                        <h2 className="text-4xl font-bold text-white leading-tight underline decoration-primary/20 underline-offset-8">Tradisional vs Generatif</h2>
+                        <p className="text-slate-200 leading-relaxed text-lg">
+                            Dahulu, AI bersifat <strong>Diskriminatif</strong>—ia bertindak seperti &quot;Satpam&quot; yang mengelompokkan data (Misal: &quot;Apakah ini spam?&quot;). Sekarang, kita memasuki era <strong>Generatif</strong>—di mana AI bertindak seperti &quot;Seniman&quot; yang mampu menciptakan konten baru dari nol berdasarkan pola yang dipelajarinya. Pergeseran ini bukan sekadar alat baru, melainkan perubahan paradigma dalam cara kita berkolaborasi dengan mesin.
+                        </p>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="p-4 glass rounded-2xl border border-white/5 hover:bg-white/5 transition-all duration-300 hover:scale-[1.02]">
+                                <h4 className="font-bold text-white mb-2 italic text-sm">Discriminative</h4>
+                                <p className="text-[10px] text-slate-300 leading-relaxed">Mempelajari batasan antar kategori. Fokus pada klasifikasi.</p>
+                            </div>
+                            <div className="p-4 bg-primary/10 rounded-2xl border border-primary/20 hover:bg-primary/20 transition-all duration-300 hover:scale-[1.02]">
+                                <h4 className="font-bold text-primary mb-2 italic text-sm">Generative</h4>
+                                <p className="text-[10px] text-primary/70 leading-relaxed">Mempelajari distribusi data. Fokus pada penciptaan.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-4xl font-bold text-white leading-tight underline decoration-primary/20 underline-offset-8">Tradisional vs Generatif</h2>
-                            <p className="text-slate-200 leading-relaxed text-lg">
-                                Dahulu, AI bersifat <strong>Diskriminatif</strong>—ia bertindak seperti "Satpam" yang mengelompokkan data (Misal: &quot;Apakah ini spam?&quot;). Sekarang, kita memasuki era <strong>Generatif</strong>—di mana AI bertindak seperti "Seniman" yang mampu menciptakan konten baru dari nol berdasarkan pola yang dipelajarinya. Pergeseran ini bukan sekadar alat baru, melainkan perubahan paradigma dalam cara kita berkolaborasi dengan mesin.
-                            </p>
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="p-4 glass rounded-2xl border border-white/5 hover:bg-white/5 transition-all duration-300 hover:scale-[1.02]">
-                                    <h4 className="font-bold text-white mb-2 italic text-sm">Discriminative</h4>
-                                    <p className="text-[10px] text-slate-300 leading-relaxed">Mempelajari batasan antar kategori. Fokus pada klasifikasi.</p>
-                                </div>
-                                <div className="p-4 bg-primary/10 rounded-2xl border border-primary/20 hover:bg-primary/20 transition-all duration-300 hover:scale-[1.02]">
-                                    <h4 className="font-bold text-primary mb-2 italic text-sm">Generative</h4>
-                                    <p className="text-[10px] text-primary/70 leading-relaxed">Mempelajari distribusi data. Fokus pada penciptaan.</p>
+                    <div className="relative group">
+                        <div className="absolute -inset-4 bg-linear-to-tr from-primary/20 to-purple-500/20 rounded-[3rem] blur-2xl group-hover:opacity-100 transition-opacity duration-1000"></div>
+                        <div className="relative glass p-10 rounded-[2.5rem] border border-white/5 shadow-2xl">
+                            <div className="aspect-video bg-slate-950 rounded-2xl flex items-center justify-center overflow-hidden border border-white/5">
+                                <div className="text-primary font-mono text-sm animate-pulse flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-primary"></span> [GENERATE_CONTENT] &gt; _
                                 </div>
                             </div>
                         </div>
-                        <div className="relative group">
-                            <div className="absolute -inset-4 bg-linear-to-tr from-primary/20 to-purple-500/20 rounded-[3rem] blur-2xl group-hover:opacity-100 transition-opacity duration-1000"></div>
-                            <div className="relative glass p-10 rounded-[2.5rem] border border-white/5 shadow-2xl">
-                                <div className="aspect-video bg-slate-950 rounded-2xl flex items-center justify-center overflow-hidden border border-white/5">
-                                    <div className="text-primary font-mono text-sm animate-pulse flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-primary"></span> [GENERATE_CONTENT] &gt; _
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-orange-400 dark:via-slate-800 to-transparent" />
-
-            {/* Section 2: Evolusi: Dari Aturan ke Pola */}
-            <ScrollReveal>
-                <section className="space-y-12">
-                    <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                        <span className="w-8 h-px bg-primary"></span> Section 02
-                    </div>
+                </div>
+            )
+        },
+        {
+            id: "02",
+            title: "Evolusi: Dari Aturan ke Pola",
+            content: (
+                <div className="space-y-12">
                     <div className="max-w-3xl space-y-4">
                         <h2 className="text-3xl font-bold text-white leading-tight">Evolusi: Dari Aturan ke Pola</h2>
                         <p className="text-primary/60 uppercase tracking-widest text-[10px] font-black">Paradigm Shift in Computation</p>
@@ -85,19 +95,17 @@ export default function Materi2({ materi }) {
                             </div>
                         </div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-orange-400 dark:via-slate-800 to-transparent" />
-
-            {/* Section 3: LLM (Large Language Models) */}
-            <ScrollReveal>
-                <section className="bg-primary rounded-[3rem] p-16 text-white overflow-hidden relative shadow-3xl">
+                </div>
+            )
+        },
+        {
+            id: "03",
+            title: "LLM (Large Language Models)",
+            fullContainer: true,
+            content: (
+                <div className="bg-primary rounded-[3rem] p-16 text-white overflow-hidden relative shadow-3xl w-full">
                     <div className="absolute top-0 right-0 p-16 opacity-10 pointer-events-none text-9xl font-black italic group-hover:scale-110 transition-transform">LLM</div>
                     <div className="relative z-10 space-y-12">
-                        <div className="flex items-center gap-4 text-white/60 font-bold tracking-widest text-sm uppercase">
-                            <span className="w-8 h-px bg-white/60"></span> Section 03
-                        </div>
                         <div className="grid md:grid-cols-2 gap-16">
                             <div className="space-y-6">
                                 <h2 className="text-5xl font-bold leading-tight decoration-white/20 underline underline-offset-12">The Giants of Language</h2>
@@ -117,17 +125,14 @@ export default function Materi2({ materi }) {
                             </div>
                         </div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-orange-400 dark:via-slate-800 to-transparent" />
-
-            {/* Section 4: Tokenisasi */}
-            <ScrollReveal>
-                <section className="space-y-8">
-                    <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                        <span className="w-8 h-px bg-primary"></span> Section 04
-                    </div>
+                </div>
+            )
+        },
+        {
+            id: "04",
+            title: "Tokenisasi: Bahasa dalam 'Kotak'",
+            content: (
+                <div className="space-y-8">
                     <h2 className="text-3xl font-bold text-white">Tokenisasi: Bahasa dalam &apos;Kotak&apos;</h2>
                     <p className="text-slate-200 max-w-2xl text-lg">
                         AI tidak melihat kata &quot;Kucing&quot; sebagai satu kesatuan utuh. Ia memecahnya menjadi potongan kecil yang disebut <strong>Tokens</strong>.
@@ -176,17 +181,14 @@ export default function Materi2({ materi }) {
                             <p className="text-[10px] text-primary/50 font-medium italic">Catatan: Bahasa selain Inggris (seperti Indonesia) seringkali memerlukan lebih banyak token untuk satu kata yang sama, yang mempengaruhi efisiensi dan biaya penggunaan AI.</p>
                         </motion.div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-orange-400 dark:via-slate-800 to-transparent" />
-
-            {/* Section 5: Probabilitas & Prediksi Kata Berikutnya */}
-            <ScrollReveal>
-                <section className="space-y-8">
-                    <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                        <span className="w-8 h-px bg-primary"></span> Section 05
-                    </div>
+                </div>
+            )
+        },
+        {
+            id: "05",
+            title: "Probabilitas & Prediksi Kata Berikutnya",
+            content: (
+                <div className="space-y-8">
                     <h2 className="text-3xl font-bold text-white leading-tight">Probabilitas & Prediksi Kata Berikutnya</h2>
                     <div className="grid md:grid-cols-2 gap-12">
                         <div className="space-y-6">
@@ -242,17 +244,14 @@ export default function Materi2({ materi }) {
                             </div>
                         </div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-orange-400 dark:via-slate-800 to-transparent" />
-
-            {/* Section 6: Arsitektur Transformer & Self-Attention */}
-            <ScrollReveal>
-                <section className="space-y-12">
-                    <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                        <span className="w-8 h-px bg-primary"></span> Section 06
-                    </div>
+                </div>
+            )
+        },
+        {
+            id: "06",
+            title: "Transformer & Self-Attention",
+            content: (
+                <div className="space-y-12">
                     <div className="text-center max-w-2xl mx-auto space-y-4">
                         <h2 className="text-4xl font-bold text-white tracking-tight italic decoration-primary/20 underline underline-offset-12">Transformer & Self-Attention</h2>
                         <p className="text-slate-300 mt-4 italic text-sm">&quot;The revolution of &apos;All You Need is Attention&apos;&quot;</p>
@@ -279,11 +278,10 @@ export default function Materi2({ materi }) {
                             </motion.div>
                         ))}
                     </div>
-                    {/* Visual Attention Demo */}
                     <div className="mt-8 p-10 glass border border-white/5 rounded-3xl overflow-hidden space-y-6">
                         <div className="text-center">
                             <h5 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Simulasi Konteks (Self-Attention)</h5>
-                            <p className="text-xs text-slate-400 italic">"Coba arahkan kursor pada kata yang memiliki makna ganda"</p>
+                            <p className="text-xs text-slate-400 italic">&quot;Coba arahkan kursor pada kata yang memiliki makna ganda&quot;</p>
                         </div>
                         <div className="flex justify-center gap-8 relative py-8">
                             {[
@@ -310,7 +308,7 @@ export default function Materi2({ materi }) {
                                         >
                                             <div className="bg-primary px-3 py-2 rounded-xl text-[10px] text-white shadow-2xl border border-white/20 leading-tight">
                                                 <strong className="block mb-1">Attention Mechanism:</strong>
-                                                AI melihat kata <strong>"menabung"</strong>, sehingga ia yakin 100% <strong>"bank"</strong> di sini adalah lembaga keuangan, bukan pinggiran sungai.
+                                                AI melihat kata <strong>&quot;menabung&quot;</strong>, sehingga ia yakin 100% <strong>&quot;bank&quot;</strong> di sini adalah lembaga keuangan, bukan pinggiran sungai.
                                             </div>
                                             <div className="w-3 h-3 bg-primary rotate-45 mx-auto -mt-1.5 border-r border-b border-white/20"></div>
                                         </motion.div>
@@ -319,19 +317,17 @@ export default function Materi2({ materi }) {
                             ))}
                         </div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-px w-full bg-linear-to-r from-transparent via-primary/20 to-transparent" />
-
-            {/* Section 7: Pelatihan: Pre-training vs RLHF */}
-            <ScrollReveal>
-                <section className="bg-primary rounded-[3rem] p-16 text-white shadow-3xl relative overflow-hidden">
+                </div>
+            )
+        },
+        {
+            id: "07",
+            title: "Pelatihan: Pre-training vs RLHF",
+            fullContainer: true,
+            content: (
+                <div className="bg-primary rounded-[3rem] p-16 text-white shadow-3xl relative overflow-hidden w-full">
                     <div className="absolute inset-0 bg-linear-to-br from-black/20 to-transparent"></div>
                     <div className="relative z-10">
-                        <div className="flex items-center gap-4 text-white/60 font-bold tracking-widest text-sm uppercase mb-12">
-                            <span className="w-8 h-px bg-white/60"></span> Section 07
-                        </div>
                         <div className="grid md:grid-cols-2 gap-16">
                             <div className="space-y-6 border-r border-white/10 pr-12">
                                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Phase 01: Pre-training</h4>
@@ -349,21 +345,18 @@ export default function Materi2({ materi }) {
                             </div>
                         </div>
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-px w-full bg-linear-to-r from-transparent via-primary/20 to-transparent" />
-
-            {/* Section 8: Batasan (Halusinasi, Bias, Knowledge Cut-off) */}
-            <ScrollReveal>
-                <section className="space-y-12">
-                    <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                        <span className="w-8 h-px bg-primary"></span> Section 08
-                    </div>
+                </div>
+            )
+        },
+        {
+            id: "08",
+            title: "Batasan Sang Raksasa",
+            content: (
+                <div className="space-y-12">
                     <h2 className="text-3xl font-bold text-white">Batasan Sang Raksasa</h2>
                     <div className="grid md:grid-cols-3 gap-8 mt-8">
                         {[
-                            { title: 'Hallucination', desc: 'AI adalah "Stochastic Parrot"—ia hanya mengulang pola tanpa pemahaman makna yang nyata. Ini membuatnya sering mengarang fakta dengan nada yang sangat meyakinkan.', icon: '🌀', color: 'red' },
+                            { title: 'Hallucination', desc: 'AI adalah &quot;Stochastic Parrot&quot;—ia hanya mengulang pola tanpa pemahaman makna yang nyata. Ini membuatnya sering mengarang fakta dengan nada yang sangat meyakinkan.', icon: '🌀', color: 'red' },
                             { title: 'Systemic Bias', desc: 'Karena belajar dari data internet yang tidak difilter sepenuhnya, AI bisa merefeksikan prasangka atau ketidakadilan sistemik yang ada dalam bahasa manusia.', icon: '⚖️', color: 'orange' },
                             { title: 'Knowledge Cut-off', desc: 'AI adalah sistem tertutup. Ia tidak tahu apa yang terjadi setelah database pelatihannya berhenti (misal: Januari 2024), kecuali jika dihubungkan ke internet.', icon: '✂️', color: 'slate' },
                         ].map((item, i) => (
@@ -374,19 +367,17 @@ export default function Materi2({ materi }) {
                             </div>
                         ))}
                     </div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-px w-full bg-linear-to-r from-transparent via-primary/20 to-transparent" />
-
-            {/* Section 9: Hubungan dengan Prompt Writing */}
-            <ScrollReveal>
-                <section className="grid md:grid-cols-2 gap-12 items-center glass border border-white/5 p-16 rounded-[3.5rem] shadow-3xl relative overflow-hidden group">
+                </div>
+            )
+        },
+        {
+            id: "09",
+            title: "Kenapa Kita Belajar Ini?",
+            fullContainer: true,
+            content: (
+                <div className="grid md:grid-cols-2 gap-12 items-center glass border border-white/5 p-16 rounded-[3.5rem] shadow-3xl relative overflow-hidden group w-full">
                     <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none text-9xl font-black italic group-hover:scale-110 transition-transform">WHY</div>
                     <div className="space-y-8 relative z-10">
-                        <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                            <span className="w-8 h-px bg-primary"></span> Section 09
-                        </div>
                         <motion.h2
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -395,7 +386,7 @@ export default function Materi2({ materi }) {
                             Kenapa Kita Belajar Ini?
                         </motion.h2>
                         <p className="text-slate-200 leading-relaxed text-lg">
-                            Memahami bahwa AI adalah &quot;mesin prediksi token berbasis konteks&quot; mengubah cara kita menulis prompt secara fundamental. Kita tidak lagi &quot;tanya-jawab&quot; secara pasif, melainkan melakukan <strong>Context Engineering</strong>. Dengan memberikan konteks yang kaya dan spesifik, kita memaksa probabilitas statistik AI untuk mengerucut hanya pada jawaban yang kita inginkan.
+                            Memahami bahwa AI adalah &quot;mesin prediksi token berbasis konteks&quot; mengubah cara kita menulis prompt secara fundamental. Kita tidak lagi &quot;tanya-jawab&quot; secara pasif, melainkan melakukan <strong>Context Engineering</strong>. Dengan memberikan konteks yang kaya dan spesifik, kita memaksa probabilitas statistik AI to mengerucut hanya pada jawaban yang kita inginkan.
                         </p>
                     </div>
                     <motion.div
@@ -413,18 +404,15 @@ export default function Materi2({ materi }) {
                         <div className="absolute inset-0 bg-linear-to-tr from-black/20 to-transparent"></div>
                         <p className="text-xl font-bold italic relative z-10">&quot;Kualitas output berbanding lurus dengan kualitas konteks yang memicu probabilitas tersebut.&quot;</p>
                     </motion.div>
-                </section>
-            </ScrollReveal>
-
-            <div className="h-px w-full bg-linear-to-r from-transparent via-primary/20 to-transparent" />
-
-            {/* Section 10: Ringkasan & Diskusi */}
-            <ScrollReveal>
-                <section className="space-y-12 text-center max-w-4xl mx-auto pt-24">
+                </div>
+            )
+        },
+        {
+            id: "10",
+            title: "Synthetic Minds: Summary",
+            content: (
+                <div className="space-y-12 text-center max-w-4xl mx-auto py-12">
                     <div className="space-y-8 group">
-                        <div className="flex items-center justify-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
-                            <span className="w-8 h-px bg-primary group-hover:w-24 transition-all duration-700"></span> Section 10
-                        </div>
                         <h2 className="text-5xl font-bold text-white tracking-tighter italic decoration-primary/20 underline underline-offset-12">Synthetic Minds: Summary</h2>
                         <div className="grid sm:grid-cols-2 gap-8 text-left mt-16 relative z-10">
                             <div className="p-10 rounded-4xl glass border border-white/5 shadow-2xl hover:bg-white/5 transition-all duration-300 hover:scale-105">
@@ -446,8 +434,69 @@ export default function Materi2({ materi }) {
                             Next Lesson: <span className="text-primary animate-pulse decoration-primary/50 underline underline-offset-8">Struktur Prompt yang Efektif</span>
                         </p>
                     </div>
-                </section>
-            </ScrollReveal>
+                </div>
+            )
+        }
+    ];
+
+    const sectionsData = getSections();
+
+    return (
+        <div className="space-y-24 pb-20 dark:text-slate-200">
+            {/* Presentation Controls */}
+            <div className="flex justify-between items-center bg-white/5 p-6 rounded-3xl border border-white/10 mb-12">
+                <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
+                        <span className="material-symbols-outlined text-primary">present_to_all</span>
+                    </div>
+                    <div>
+                        <h3 className="text-white font-bold leading-none">Mode Presentasi</h3>
+                        <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Gunakan slide untuk presentasi di depan kelas</p>
+                    </div>
+                </div>
+                <button
+                    onClick={() => openPresentation(0)}
+                    className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-xl shadow-primary/20"
+                >
+                    <span className="material-symbols-outlined text-sm">play_arrow</span>
+                    Mulai Presentasi
+                </button>
+            </div>
+
+            {sectionsData.map((section, index) => (
+                <div key={section.id}>
+                    <ScrollReveal>
+                        <section className={`space-y-8 group/section relative`}>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-4 text-primary font-bold tracking-widest text-sm uppercase">
+                                    <span className="w-8 h-px bg-primary"></span> Section {section.id}
+                                </div>
+                                <button
+                                    onClick={() => openPresentation(index)}
+                                    className="opacity-0 group-hover/section:opacity-100 transition-opacity bg-white/5 hover:bg-primary/20 hover:text-primary text-slate-400 p-2 rounded-lg border border-white/10 flex items-center gap-2 px-3"
+                                    title="Presentasi bagian ini"
+                                >
+                                    <span className="material-symbols-outlined text-sm">visibility</span>
+                                    <span className="text-[10px] font-black uppercase tracking-widest">Present</span>
+                                </button>
+                            </div>
+
+                            {section.content}
+                        </section>
+                    </ScrollReveal>
+                    {index < sectionsData.length - 1 && (
+                        <div className="h-0.5 w-full bg-linear-to-r from-transparent via-orange-400 dark:via-slate-800 to-transparent mt-24" />
+                    )}
+                </div>
+            ))}
+
+            {isPresenting && (
+                <PresentationMode
+                    slides={sectionsData.map(s => ({ sectionTitle: s.title, content: s.content }))}
+                    initialSlide={startSlide}
+                    onClose={() => setIsPresenting(false)}
+                />
+            )}
         </div>
     );
 }
