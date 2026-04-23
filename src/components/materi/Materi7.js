@@ -82,76 +82,237 @@ export default function Materi7({ materi }) {
             id: "01",
             title: "Vokabular Visual",
             content: (
-                <div className="space-y-12 text-left">
+                <div className="space-y-16 text-left">
                     <div className="flex justify-between items-end border-b border-white/5 pb-8">
                         <div className="space-y-2">
                             <h3 className="text-pink-500 font-bold text-xs uppercase tracking-widest">01. Vokabular Visual (Fundamental)</h3>
-                            <p className="text-2xl font-bold">Mendikte Seni dengan Presisi Teoretis</p>
+                            <p className="text-4xl font-bold tracking-tight">Mendikte Seni dengan Presisi Teoretis</p>
+                            <p className="text-slate-400 max-w-2xl text-sm">Memahami terminologi desain adalah kunci untuk berkomunikasi dengan AI. Berikut adalah tiga pilar utama yang harus Anda kuasai.</p>
                         </div>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-6">
+
+                    <div className="grid gap-16">
+                        {/* Lighting Section */}
+                        <div className="space-y-8">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-yellow-500/10 text-yellow-500 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-yellow-500/20">💡</div>
+                                <div>
+                                    <h4 className="text-2xl font-bold uppercase tracking-tight text-white">1. Lighting (Pencahayaan)</h4>
+                                    <p className="text-[10px] text-yellow-500/70 font-black uppercase tracking-widest">Atmosphere & Mood</p>
+                                </div>
+                            </div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {[
+                                    { 
+                                        name: 'Cinematic', 
+                                        desc: 'Pencahayaan dramatis ala film layar lebar, biasanya memiliki kontras tinggi antara area terang dan bayangan yang dalam.', 
+                                        example: '"Cinematic lighting, dramatic shadows, moody atmosphere"' 
+                                    },
+                                    { 
+                                        name: 'Soft Studio', 
+                                        desc: 'Cahaya lembut dan merata tanpa bayangan tajam. Umum digunakan untuk foto produk atau portrait profesional.', 
+                                        example: '"Soft studio lighting, high-key photography, clean background"' 
+                                    },
+                                    { 
+                                        name: 'Golden Hour', 
+                                        desc: 'Cahaya hangat keemasan yang muncul sesaat sebelum matahari terbenam atau setelah terbit. Memberi kesan magis.', 
+                                        example: '"Golden hour, warm orange glow, soft sunlight, long shadows"' 
+                                    },
+                                    { 
+                                        name: 'Volumetric', 
+                                        desc: 'Efek "berkas cahaya" (God rays) yang terlihat jelas menembus udara yang berdebu, berasap, atau berkabut.', 
+                                        example: '"Volumetric lighting, sunbeams, hazy atmosphere, rays of light"' 
+                                    }
+                                ].map((l, i) => (
+                                    <div key={i} className="p-6 glass rounded-[2rem] border border-white/5 bg-white/2 hover:bg-white/5 transition-all group relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-500/5 blur-3xl -mr-12 -mt-12 group-hover:bg-yellow-500/10 transition-colors" />
+                                        <h5 className="font-bold text-yellow-500 mb-3 text-lg">{l.name}</h5>
+                                        <p className="text-[11px] text-slate-300 leading-relaxed mb-4 min-h-[60px]">{l.desc}</p>
+                                        <div className="space-y-1">
+                                            <p className="text-[8px] text-slate-500 uppercase font-black tracking-tighter">Prompt Keyword:</p>
+                                            <code className="text-[10px] font-mono text-pink-300 block p-3 bg-black/40 rounded-xl border border-white/5 group-hover:border-pink-500/30 transition-colors">
+                                                {l.example}
+                                            </code>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Composition Section */}
+                        <div className="space-y-8">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-blue-500/20">📐</div>
+                                <div>
+                                    <h4 className="text-2xl font-bold uppercase tracking-tight text-white">2. Komposisi (Sudut Pandang)</h4>
+                                    <p className="text-[10px] text-blue-500/70 font-black uppercase tracking-widest">Perspective & Framing</p>
+                                </div>
+                            </div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {[
+                                    { 
+                                        name: "Bird's Eye", 
+                                        desc: 'Sudut pandang tegak lurus dari atas ke bawah. Memberikan kesan skala yang luas seperti dari drone atau satelit.', 
+                                        example: '"Bird\'s eye view, top-down perspective, aerial photography"' 
+                                    },
+                                    { 
+                                        name: 'Macro', 
+                                        desc: 'Pengambilan gambar jarak sangat dekat untuk menonjolkan detail tekstur atau objek kecil yang tidak kasat mata.', 
+                                        example: '"Macro photography, extreme close-up, f/1.8, bokeh background"' 
+                                    },
+                                    { 
+                                        name: 'Low Angle', 
+                                        desc: 'Kamera diletakkan di bawah subjek menghadap ke atas. Memberikan kesan subjek yang megah, kuat, atau heroik.', 
+                                        example: '"Low angle shot, heroic perspective, looking up at the sky"' 
+                                    },
+                                    { 
+                                        name: 'Rule of Thirds', 
+                                        desc: 'Menempatkan objek utama pada titik potong garis imajiner yang membagi frame menjadi 9 bagian seimbang.', 
+                                        example: '"Rule of thirds composition, perfectly balanced, symmetrical framing"' 
+                                    }
+                                ].map((c, i) => (
+                                    <div key={i} className="p-6 glass rounded-[2rem] border border-white/5 bg-white/2 hover:bg-white/5 transition-all group relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 blur-3xl -mr-12 -mt-12 group-hover:bg-blue-500/10 transition-colors" />
+                                        <h5 className="font-bold text-blue-400 mb-3 text-lg">{c.name}</h5>
+                                        <p className="text-[11px] text-slate-300 leading-relaxed mb-4 min-h-[60px]">{c.desc}</p>
+                                        <div className="space-y-1">
+                                            <p className="text-[8px] text-slate-500 uppercase font-black tracking-tighter">Prompt Keyword:</p>
+                                            <code className="text-[10px] font-mono text-pink-300 block p-3 bg-black/40 rounded-xl border border-white/5 group-hover:border-pink-500/30 transition-colors">
+                                                {c.example}
+                                            </code>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Art Style Section */}
+                        <div className="space-y-8">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-purple-500/20">🎨</div>
+                                <div>
+                                    <h4 className="text-2xl font-bold uppercase tracking-tight text-white">3. Gaya Seni (Art Style)</h4>
+                                    <p className="text-[10px] text-purple-500/70 font-black uppercase tracking-widest">Aesthetic & Direction</p>
+                                </div>
+                            </div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {[
+                                    { 
+                                        name: 'Bauhaus', 
+                                        desc: 'Gaya desain fungsional yang mengutamakan bentuk geometris dasar (kotak, lingkaran) dan warna primer.', 
+                                        example: '"Bauhaus style, geometric shapes, minimalist, primary colors"' 
+                                    },
+                                    { 
+                                        name: 'Brutalisme', 
+                                        desc: 'Estetika yang "mentah" dan jujur, seringkali menggunakan tekstur beton, tipografi besar, dan layout asimetris.', 
+                                        example: '"Brutalist design, raw concrete texture, bold typography, industrial"' 
+                                    },
+                                    { 
+                                        name: 'Glassmorphism', 
+                                        desc: 'Tren desain modern dengan efek kaca buram (frosted glass) yang transparan dan cahaya lembut di tepiannya.', 
+                                        example: '"Glassmorphism UI, frosted glass, vibrant background, soft blur"' 
+                                    },
+                                    { 
+                                        name: 'Cyberpunk', 
+                                        desc: 'Visual masa depan distopia yang didominasi lampu neon (pink/biru), suasana malam hari, hujan, dan teknologi tinggi.', 
+                                        example: '"Cyberpunk aesthetic, neon lights, rainy night city, high-tech grit"' 
+                                    }
+                                ].map((s, i) => (
+                                    <div key={i} className="p-6 glass rounded-[2rem] border border-white/5 bg-white/2 hover:bg-white/5 transition-all group relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 blur-3xl -mr-12 -mt-12 group-hover:bg-purple-500/10 transition-colors" />
+                                        <h5 className="font-bold text-purple-400 mb-3 text-lg">{s.name}</h5>
+                                        <p className="text-[11px] text-slate-300 leading-relaxed mb-4 min-h-[60px]">{s.desc}</p>
+                                        <div className="space-y-1">
+                                            <p className="text-[8px] text-slate-500 uppercase font-black tracking-tighter">Prompt Keyword:</p>
+                                            <code className="text-[10px] font-mono text-pink-300 block p-3 bg-black/40 rounded-xl border border-white/5 group-hover:border-pink-500/30 transition-colors">
+                                                {s.example}
+                                            </code>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        },
+        {
+            id: "02",
+            title: "Studi Kasus PTCF",
+            content: (
+                <div className="space-y-12 text-left">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/5 pb-8 gap-4">
+                        <div className="space-y-2">
+                            <h3 className="text-pink-500 font-bold text-xs uppercase tracking-widest">02. Studi Kasus (Implementasi PTCF)</h3>
+                            <p className="text-4xl font-bold tracking-tight">Dari Ide ke Visual yang Presisi</p>
+                        </div>
+                        <div className="flex gap-2">
+                            {['P', 'T', 'C', 'F'].map(letter => (
+                                <span key={letter} className="w-8 h-8 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-[10px] font-black text-pink-500" title={
+                                    letter === 'P' ? 'Persona' : letter === 'T' ? 'Task' : letter === 'C' ? 'Context' : 'Format/Fundamental'
+                                }>{letter}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { icon: '💡', title: 'Lighting', desc: 'Cinematic, Soft Studio, Golden Hour.', prompt: '"Pencahayaan volumetrik, cahaya neon siber."' },
-                            { icon: '📐', title: 'Komposisi', desc: "Bird's eye, Macro, Low angle.", prompt: '"Sudut pandang mata burung, makro f/1.8."' },
-                            { icon: '🎨', title: 'Gaya Seni', desc: 'Bauhaus, Brutalisme, Glassmorphism.', prompt: '"Gaya Bauhaus, siberpunk futuristik."' }
+                            {
+                                type: "Logo & Branding",
+                                title: "Identity Startup",
+                                color: "pink",
+                                prompt: "Sebagai Desainer Logo Profesional [P], buat logo minimalis untuk 'Stellar' startup eksplorasi ruang angkasa [T]. Gabungkan simbol kompas dan bintang dengan palet warna biru dongker dan perak [C]. Hasil akhir vektor datar, latar belakang putih, gaya modern dan bersih [F]."
+                            },
+                            {
+                                type: "Event Marketing",
+                                title: "Poster Festival Retro",
+                                color: "purple",
+                                prompt: "Sebagai Ilustrator Poster Poster Digital [P], rancang poster konser festival musik 80-an [T]. Gunakan gaya Vaporwave, warna neon pink-ungu, dan tekstur kaset lama [C]. Format poster vertikal, tipografi tebal bergaya chrome, pencahayaan siberpunk [F]."
+                            },
+                            {
+                                type: "Outdoor Ads",
+                                title: "Baliho Properti",
+                                color: "blue",
+                                prompt: "Sebagai Fotografer Iklan Komersial [P], buat visual untuk baliho perumahan mewah 'The Oasis' [T]. Tampilkan eksterior rumah modern dengan taman hijau luas dan pencahayaan matahari terbenam yang hangat [C]. Sudut pandang wide angle, resolusi ultra-tinggi 8k, sinematik [F]."
+                            },
+                            {
+                                type: "Social Media",
+                                title: "Instagram Fashion Ads",
+                                color: "indigo",
+                                prompt: "Sebagai Social Media Content Creator [P], buat foto katalog untuk koleksi jam tangan mewah [T]. Jam diletakkan di atas permukaan marmer hitam dengan dekorasi bunga liar minimalis [C]. Pencahayaan soft studio, kedalaman bidang (bokeh) yang artistik, format rasio 4:5 [F]."
+                            },
+                            {
+                                type: "Architecture",
+                                title: "Interior Smart Home",
+                                color: "emerald",
+                                prompt: "Sebagai Arsitek Interior Modern [P], rancang visual ruang tamu konsep Smart Home masa depan [T]. Integrasikan layar hologram tipis di dinding, furnitur ergonomis, dan pencahayaan LED tersembunyi [C]. Foto arsitektural, sudut pandang mata burung (bird's eye), gaya minimalis futuristik [F]."
+                            },
+                            {
+                                type: "UI/UX Concept",
+                                title: "Mobile App Interface",
+                                color: "orange",
+                                prompt: "Sebagai UI/UX Desainer Senior [P], buat tampilan antarmuka (interface) aplikasi pelacak kesehatan [T]. Fokus pada desain 'Glassmorphism', grafik statistik yang halus, dan palet warna pastel [C]. Render 3D bersih, resolusi tajam, pencahayaan lembut, tampilan depan (front view) [F]."
+                            }
                         ].map((item, i) => (
-                            <div key={i} className="p-6 glass rounded-3xl border border-white/5 space-y-4 bg-white/2">
-                                <div className="text-3xl">{item.icon}</div>
-                                <h4 className="font-bold text-lg uppercase">{item.title}</h4>
-                                <p className="text-xs text-slate-300 leading-relaxed">{item.desc}</p>
-                                <p className="text-[10px] font-mono text-pink-300 italic">{item.prompt}</p>
+                            <div key={i} className="p-8 glass border border-white/5 rounded-[3rem] bg-white/2 hover:bg-white/5 transition-all group flex flex-col h-full">
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className={`px-4 py-1.5 rounded-full bg-${item.color}-500/10 border border-${item.color}-500/20 text-[10px] font-black uppercase tracking-widest text-${item.color}-400`}>
+                                        {item.type}
+                                    </div>
+                                </div>
+                                <h4 className="text-2xl font-bold italic text-white mb-4">{item.title}</h4>
+                                <div className="relative flex-grow">
+                                    <div className="absolute -left-4 top-0 bottom-0 w-1 bg-linear-to-b from-pink-500 to-transparent opacity-50 rounded-full" />
+                                    <p className="text-xs text-slate-300 leading-relaxed italic pl-2">
+                                        {item.prompt.split(/\[|\]/).map((part, index) => (
+                                            index % 2 === 1 ? (
+                                                <span key={index} className="text-pink-500 font-bold mx-1">[{part}]</span>
+                                            ) : part
+                                        ))}
+                                    </p>
+                                </div>
                             </div>
                         ))}
-                    </div>
-                </div>
-            )
-        },
-        {
-            id: "02-CASE-1-2",
-            title: "Studi Kasus: Logo & Poster",
-            content: (
-                <div className="space-y-12 text-left">
-                    <h3 className="text-pink-500 font-bold text-xs uppercase tracking-widest">02. Studi Kasus (Logo & Poster)</h3>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <div className="p-8 bg-slate-900 border border-white/10 rounded-[3rem] space-y-6 relative overflow-hidden group">
-                            <h5 className="text-[10px] font-black text-pink-400 uppercase tracking-widest">Corporate Identity</h5>
-                            <h4 className="text-2xl font-bold italic text-white">Logo Startup Teknologi</h4>
-                            <p className="text-xs text-slate-300 leading-relaxed italic border-l-2 border-pink-500 pl-4">
-                                &quot;Sbg Desainer Logo Profesional, buat logo minimalis untuk &apos;Stellar&apos; (startup eksplorasi ruang angkasa). Gabungkan simbol kompas dan bintang, gaya vektor datar (*flat design*)...&quot;
-                            </p>
-                        </div>
-                        <div className="p-8 glass border border-white/10 rounded-[3rem] space-y-6 bg-white/2">
-                            <h5 className="text-[10px] font-black text-purple-400 uppercase tracking-widest">Event Marketing</h5>
-                            <h4 className="text-2xl font-bold italic text-white">Poster Festival Musik Retro</h4>
-                            <p className="text-xs text-slate-300 leading-relaxed italic border-l-2 border-purple-500 pl-4">
-                                &quot;Poster konser festival musik 80-an, gaya *Vaporwave*, warna neon pink dan ungu, tekstur kaset lama, tipografi tebal bergaya chrome...&quot;
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            )
-        },
-        {
-            id: "02-CASE-3-4",
-            title: "Studi Kasus: Ads & 3D",
-            content: (
-                <div className="space-y-12 text-left">
-                    <h3 className="text-pink-500 font-bold text-xs uppercase tracking-widest">02. Studi Kasus (Social Media & 3D)</h3>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <div className="p-8 glass border border-white/10 rounded-[3rem] space-y-6 bg-white/2">
-                            <h5 className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Social Media Ads</h5>
-                            <h4 className="text-2xl font-bold italic text-white">Iklan Instagram Produk Mewah</h4>
-                            <p className="text-xs text-slate-300 leading-relaxed italic border-l-2 border-indigo-500 pl-4">
-                                &quot;Foto sinematik botol parfum kaca mewah di atas permukaan marmer, dikelilingi bunga liar estetik, pencahayaan studio lembut...&quot;
-                            </p>
-                        </div>
-                        <div className="p-8 bg-slate-900 border border-white/10 rounded-[3rem] space-y-6">
-                            <h5 className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Character Assets</h5>
-                            <h4 className="text-2xl font-bold italic text-white">Karakter 3D Claymorphism</h4>
-                            <p className="text-xs text-slate-300 leading-relaxed italic border-l-2 border-emerald-500 pl-4">
-                                &quot;Karakter astronot kecil yang imut, gaya klaymorfisme (*claymorphism*), render 3D menggunakan Octane, warna-warna pastel...&quot;
-                            </p>
-                        </div>
                     </div>
                 </div>
             )
@@ -190,7 +351,7 @@ export default function Materi7({ materi }) {
                     <h3 className="text-pink-500 font-bold text-xs uppercase tracking-widest text-center">AI Graphic Tools Review 2024 (2/2)</h3>
                     <div className="grid gap-4">
                         {tools.slice(2).map((tool, i) => (
-                            <div key={i} className="p-4 glass border border-white/5 rounded-[2rem] bg-white/2 grid md:grid-cols-4 gap-6 items-center">
+                            <div key={i} className="p-4 glass border border-white/5 rounded-4xl bg-white/2 grid md:grid-cols-4 gap-6 items-center">
                                 <div>
                                     <h5 className="text-lg font-bold text-white">{tool.name}</h5>
                                     <p className="text-[9px] text-pink-500 font-black uppercase mt-1">{tool.type}</p>

@@ -205,7 +205,7 @@ export default function Materi6({ materi }) {
                             <p className="text-slate-400 text-sm leading-relaxed">
                                 Gunakan <strong className="text-white">Server Component</strong> untuk mengambil data awal langsung dari database menggunakan Prisma — tanpa API roundtrip, tanpa loading state.
                             </p>
-                            <div className="p-6 bg-slate-900 border border-white/10 rounded-[2rem] shadow-2xl space-y-3">
+                            <div className="p-6 bg-slate-900 border border-white/10 rounded-4xl shadow-2xl space-y-3">
                                 <h5 className="text-xs font-bold text-emerald-400 uppercase tracking-widest">🚀 Prompt (Server Component):</h5>
                                 <p className="text-xs font-mono text-slate-200 leading-relaxed italic">
                                     &quot;Refactor app/inventaris/page.tsx menjadi async Server Component. Fetch data produk langsung menggunakan Prisma Client di server (tanpa API route), lalu teruskan sebagai props ke Client Component yang menangani form dan interaksi UI (Task).&quot;
@@ -229,7 +229,7 @@ export default function Materi6({ materi }) {
                                 Gunakan <strong className="text-white">useEffect + fetch()</strong> hanya saat data perlu di-refresh
                                 berdasarkan <em>aksi user</em> — misalnya setelah form submit, filter berubah, atau polling realtime.
                             </p>
-                            <div className="p-6 bg-slate-900 border border-white/10 rounded-[2rem] shadow-2xl space-y-3">
+                            <div className="p-6 bg-slate-900 border border-white/10 rounded-4xl shadow-2xl space-y-3">
                                 <h5 className="text-xs font-bold text-amber-400 uppercase tracking-widest">🚀 Prompt (Client Refetch):</h5>
                                 <p className="text-xs font-mono text-slate-200 leading-relaxed italic">
                                     &quot;Di dalam InventarisClient.tsx, tambahkan fungsi fetchProducts() yang memanggil GET /api/products dan update state. Panggil fungsi ini setelah form POST berhasil agar tabel otomatis refresh tanpa reload halaman (Format).&quot;

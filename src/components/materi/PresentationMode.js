@@ -139,8 +139,8 @@ export default function PresentationMode({ slides, initialSlide = 0, onClose }) 
                         className="w-full h-full max-w-7xl relative"
                     >
                         {/* The actual slide box */}
-                        <div className="w-full h-full flex items-center justify-center overflow-hidden">
-                            <div className="w-full max-h-full overflow-hidden px-2 md:px-12 py-4 flex flex-col items-center justify-center">
+                        <div className="w-full h-full flex items-start justify-center overflow-y-auto custom-scrollbar-minimal pt-16 pb-20">
+                            <div className="w-full px-2 md:px-12 py-4 flex flex-col items-center justify-center min-h-full">
                                 {slides[currentSlide].content}
                             </div>
                         </div>

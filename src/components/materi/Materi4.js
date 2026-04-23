@@ -81,14 +81,14 @@ export default function Materi4({ materi }) {
             content: (
                 <div className="grid md:grid-cols-2 gap-8 text-left">
                     <div className="p-8 glass border border-white/5 rounded-3xl space-y-4 shadow-sm">
-                        <h5 className="font-bold text-white uppercase text-xs tracking-widest text-slate-300">Contoh Prompt Dasar</h5>
+                        <h5 className="font-bold text-slate-300 uppercase text-xs tracking-widest">Contoh Prompt Dasar</h5>
                         <div className="p-4 bg-slate-950 rounded-xl font-sans text-sm italic text-slate-200 border border-white/5">
                             &quot;Tulis surat izin tidak masuk kerja karena sakit untuk atasan saya.&quot;
                         </div>
                         <p className="text-xs text-red-400 font-medium">Hasil: Terlalu umum, kurang detail medis/prosedur.</p>
                     </div>
                     <div className="p-8 glass border border-emerald-500/20 rounded-3xl space-y-4 shadow-xl border-l-4 border-l-emerald-500">
-                        <h5 className="font-bold text-white uppercase text-xs tracking-widest text-emerald-500">Contoh Prompt Kompleks (P-C-T-F)</h5>
+                        <h5 className="font-bold text-emerald-500 uppercase text-xs tracking-widest">Contoh Prompt Kompleks (P-C-T-F)</h5>
                         <div className="p-4 bg-emerald-500/10 rounded-xl font-sans text-sm text-slate-300">
                             &quot;Bertindaklah sebagai Sekretaris Eksekutif. Saya perlu mengirim surat resmi ke Dekan Fakultas Teknik UI. Konteksnya adalah permohonan kerjasama magang mahasiswa untuk 5 orang di divisi AI kami. Gunakan Bahasa Indonesia baku (EYD). Format harus mengikuti standar surat resmi dengan blok kiri. Jangan gunakan bahasa yang terlalu kaku tapi tetap tunjukkan rasa hormat yang tinggi.&quot;
                         </div>
