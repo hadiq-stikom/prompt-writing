@@ -69,4 +69,44 @@ export const materiList = [
         title: 'Projek Akhir Prompt Writing',
         desc: 'Implementasi seluruh materi dalam satu tugas komprehensif.'
     },
+    {
+        id: 15,
+        title: 'Next.js Foundations & Project Kickoff',
+        desc: 'Memahami App Router, Server vs Client Components, dan memulai project PromptHub.'
+    },
+    {
+        id: 16,
+        title: 'Supabase: Database & CRUD',
+        desc: 'Desain schema database, koneksi Supabase ke Next.js, dan operasi CRUD dasar.'
+    },
+    {
+        id: 17,
+        title: 'Supabase Auth: Login & Protected Routes',
+        desc: 'Implementasi autentikasi email/OAuth, session management, dan proteksi route.'
+    },
+    {
+        id: 18,
+        title: 'Cloudinary: Upload & Manajemen Gambar',
+        desc: 'Upload gambar, transformasi otomatis, dan integrasi Cloudinary ke PromptHub.'
+    },
+    {
+        id: 19,
+        title: 'Realtime & Row Level Security',
+        desc: 'Fitur like/bookmark realtime dan keamanan data dengan RLS Supabase.'
+    },
+    {
+        id: 20,
+        title: 'Search, Filter & API Routes',
+        desc: 'Full-text search, filter dinamis, URL state management, dan Next.js Route Handlers.'
+    },
+    {
+        id: 21,
+        title: 'Deployment, Performance & SEO',
+        desc: 'Deploy ke Vercel, optimasi caching, metadata dinamis, dan Open Graph tags.'
+    },
+    {
+        id: 22,
+        title: 'Capstone: Extend PromptHub',
+        desc: 'Implementasi fitur baru secara mandiri dan presentasi Prompt Journey Log.'
+    },
 ];

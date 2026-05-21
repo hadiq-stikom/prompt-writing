@@ -7,6 +7,17 @@ import Materi4 from '@/components/materi/Materi4';
 import Materi5 from '@/components/materi/Materi5';
 import Materi6 from '@/components/materi/Materi6';
 import Materi7 from '@/components/materi/Materi7';
+import Materi8 from '@/components/materi/Materi8';
+import Materi9 from '@/components/materi/Materi9';
+import Materi10 from '@/components/materi/Materi10';
+import Materi11 from '@/components/materi/Materi11';
+import Materi12 from '@/components/materi/Materi12';
+import Materi13 from '@/components/materi/Materi13';
+import Materi14 from '@/components/materi/Materi14';
+import Materi15 from '@/components/materi/Materi15';
+import Materi16 from '@/components/materi/Materi16';
+import Materi17 from '@/components/materi/Materi17';
+import Materi18 from '@/components/materi/Materi18';
 import DefaultMateri from '@/components/materi/DefaultMateri';
 
 export async function generateStaticParams() {
@@ -23,6 +34,17 @@ const materiComponents = {
     5: Materi5,
     6: Materi6,
     7: Materi7,
+    8: Materi8,
+    9: Materi9,
+    10: Materi10,
+    11: Materi11,
+    12: Materi12,
+    13: Materi13,
+    14: Materi14,
+    15: Materi15,
+    16: Materi16,
+    17: Materi17,
+    18: Materi18,
 };
 
 export default async function MateriPage({ params }) {
